@@ -1,3 +1,4 @@
+import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
@@ -16,7 +17,7 @@ class Router extends StatelessWidget {
     return MaterialApp(
       onGenerateRoute: (settings) {
         if (settings.name == '/') {
-          return MaterialPageRoute(builder: (context) => MyHomePage(title: "Top Page"));
+          return MaterialPageRoute(builder: (context) => IndexPage());
         }
 
         return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
