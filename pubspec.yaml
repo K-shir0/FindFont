@@ -27,6 +27,15 @@ dependencies:
   flutter_riverpod: ^0.12.1
   state_notifier: ^0.6.0
   flutter_svg: ^0.19.0
+  flutter_dotenv: ^2.1.0
+  camera: ^0.5.8
+  dio: ^3.0.10
+  uuid: 2.2.2
+  path_provider: ^1.6.18
+  path: ^1.7.0
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -54,7 +63,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - assets/svg
+    - assets/svg/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
