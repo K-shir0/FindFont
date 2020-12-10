@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/all.dart';
 void main() {
   runApp(
     ProviderScope(
-      child: MyApp(),
+      child: Router(),
     ),
   );
 }
@@ -14,16 +14,13 @@ class Router extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Navigator(
-        pages: [
-          MaterialPage(
-            key: ValueKey('TestPage'),
-            child: MyHomePage(
-              title: "test",
-            ),
-          )
-        ],
-      ),
+      onGenerateRoute: (settings) {
+        if (settings.name == '/') {
+          return MaterialPageRoute(builder: (context) => MyHomePage(title: "Top Page"));
+        }
+
+        return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
+      },
     );
   }
 }
