@@ -1,10 +1,17 @@
 import 'package:camera/camera.dart';
+import 'package:find_font/components/scan_result/model/font_information.dart';
+import 'package:find_font/components/scan_result/model/scan_result.dart';
 import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/all.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+import 'components/scan_result/model/scan_result.dart';
+import 'components/scan_result/model/scan_result.dart';
 
 CameraDescription firstCamera;
 
@@ -12,7 +19,13 @@ Future main() async {
   // 環境変数ファイルの読み込み
   await DotEnv().load('.env');
 
-  // 使用可能なカメラのロード
+  await Hive.initFlutter();
+
+  print("登録");
+  Hive.registerAdapter(FontInformationAdapter());
+  Hive.registerAdapter(ScanResultAdapter());
+
+  // 使用可能なカメラのロード処理
   try {
     WidgetsFlutterBinding.ensureInitialized();
 

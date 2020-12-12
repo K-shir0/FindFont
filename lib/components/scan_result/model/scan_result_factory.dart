@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 import 'i_scan_result_factiory.dart';
 
-class ScanResultFactory implements IScanResultFactory {
+class  ScanResultFactory implements IScanResultFactory {
   @override
   ScanResult create() {
     return ScanResult(Uuid().v4());

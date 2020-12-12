@@ -1,16 +1,17 @@
 // スキャンの結果を管理するクラス
-class ScanResult {
+import 'package:find_font/components/scan_result/model/scan_result_factory.dart';
+import 'package:hive/hive.dart';
+
+import 'font_information.dart';
+
+part 'scan_result.g.dart';
+
+@HiveType(typeId: 1)
+class ScanResult extends HiveObject {
+  @HiveField(0)
   final String id;
-  List<FontInformation> fontInformationList = new List();
+  @HiveField(1)
+  HiveList<FontInformation> fontInformationList;
 
-  ScanResult(this.id, [this.fontInformationList]);
-}
-
-class FontInformation {
-  final String fontFamily;
-  final String fontName;
-  final String style;
-  final bool favorite;
-
-  FontInformation(this.fontFamily, this.fontName, this.style, this.favorite);
+  ScanResult(this.id);
 }

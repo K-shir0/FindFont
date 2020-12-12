@@ -6,6 +6,9 @@ class ScanResultApplicationServiceFactory {
   ScanResultApplicationService create() {
     final repository = new ScanResultRepository();
 
+    print('init');
+
+    repository.init();
     return ScanResultApplicationService(new ScanResultFactory(), repository);
   }
 }
