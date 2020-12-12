@@ -24,15 +24,20 @@ class FontLogPage extends HookWidget {
         title: new Text('フォント履歴'),
         centerTitle: true,
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.only(top: 1, bottom: 1),
-        itemBuilder: (BuildContext context, int index) {
-          if (index < scanResult.length) {
-            var scanLog = scanResult[index];
-            return _fontLogList(scanLog);
-          }
-        },
-      ),
+      // scanResultがnullかどうか
+      body: scanResult.isEmpty
+          ? ListView.builder(
+              padding: EdgeInsets.only(top: 1, bottom: 1),
+              itemBuilder: (BuildContext context, int index) {
+                print(index);
+
+                if (index < scanResult.length) {
+                  var scanLog = scanResult[index];
+                  return _fontLogList(scanLog);
+                }
+              },
+            )
+          : Container(),
     );
   }
 

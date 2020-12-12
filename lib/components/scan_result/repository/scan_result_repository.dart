@@ -15,6 +15,14 @@ class ScanResultRepository {
     print("openBox");
     this._scan_result_box = await Hive.openBox('scanResults');
     this._fontInformationBox = await Hive.openBox('fontInformations');
+
+    _fontInformationBox.clear();
+
+    if(_fontInformationBox.length == 0) {
+      print("FontList初期化処理");
+      // _fontInformationBox.add(new FontInformation(fontFamily, fontName, style, favorite));
+    }
+
     print("box設置完了");
   }
 
