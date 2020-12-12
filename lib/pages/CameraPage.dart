@@ -9,8 +9,16 @@ import 'package:find_font/components/scan_result/scan_result_register_command.da
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/all.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:state_notifier/state_notifier.dart';
+
+import '../main.dart';
+
+final _scanResultServiceProvider = ChangeNotifierProvider(
+        (ref) => new ScanResultApplicationServiceNotifier()
+);
 
 class CameraPage extends StatefulWidget {
   final double topIconMainSize = 78.0;
@@ -25,6 +33,8 @@ class CameraPage extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final test = Provider(_scanResultServiceProvider);
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Navigator'),
@@ -98,6 +108,9 @@ class CameraPageState extends State<CameraPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    // final scanResultProvider = useProvider(_scanResultServiceProvider);
+
     return Scaffold(
       appBar: AppBar(title: Text('カメラ'), centerTitle: true),
       // カメラウィジェット
@@ -173,8 +186,8 @@ class CameraPageState extends State<CameraPage> {
                                   print('処理開始');
                                   ScanResultRegisterCommand command =
                                       new ScanResultRegisterCommand(path);
-                                  _scanResultApplicationService
-                                      .register(command);
+
+                                  this.context.read(_scanResultServiceProvider).scanResultApplicationService.register(command);
 
                                   print('送信処理開始');
 

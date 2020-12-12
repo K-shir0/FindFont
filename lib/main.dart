@@ -1,6 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:find_font/components/scan_result/model/font_information.dart';
 import 'package:find_font/components/scan_result/model/scan_result.dart';
+import 'package:find_font/components/scan_result/repository/scan_result_repository.dart';
+import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
+import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
@@ -9,6 +12,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'components/scan_result/model/scan_result.dart';
 import 'components/scan_result/model/scan_result.dart';
@@ -62,6 +66,17 @@ class Router extends StatelessWidget {
         return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
       },
     );
+  }
+}
+
+class ScanResultApplicationServiceNotifier extends ChangeNotifier {
+  ScanResultApplicationService _scanResultApplicationService;
+
+  ScanResultApplicationService get scanResultApplicationService =>
+      _scanResultApplicationService;
+
+  ScanResultApplicationServiceNotifier() {
+    _scanResultApplicationService = new ScanResultApplicationServiceFactory().create();
   }
 }
 
