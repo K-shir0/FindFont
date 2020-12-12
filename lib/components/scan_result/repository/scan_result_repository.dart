@@ -15,6 +15,7 @@ class ScanResultRepository {
     print("openBox");
     this._scan_result_box = await Hive.openBox('scanResults');
     this._fontInformationBox = await Hive.openBox('fontInformations');
+    print("box設置完了");
   }
 
   Future<void> store(String path, String filename) async {
@@ -24,7 +25,6 @@ class ScanResultRepository {
 
     FormData formData = new FormData.fromMap(
         {"photo": await MultipartFile.fromFile(path, filename: filename)});
-
 
     // 取得処理
     // try {
@@ -41,7 +41,7 @@ class ScanResultRepository {
 
     var prediction = test['prediction'];
 
-    _scan_result_box.clear();
+    // _scan_result_box.clear();
 
     // データの保存
     ScanResultFactory scanResultFactory = new ScanResultFactory();
@@ -49,9 +49,10 @@ class ScanResultRepository {
 
     scanResult.fontInformationList = HiveList(_fontInformationBox);
 
-    for(int a in prediction) {
+    for (int a in prediction) {
       // 配列への問合せ
-      FontInformation fontInformation = new FontInformation("aaa", "aaa", "aaa", true);
+      FontInformation fontInformation =
+          new FontInformation("aaa", "aaa", "aaa", true);
       _fontInformationBox.add(fontInformation);
       scanResult.fontInformationList.add(fontInformation);
     }
@@ -72,5 +73,17 @@ class ScanResultRepository {
     // print(test['prediction']);
 
     print("test");
+  }
+
+  getAll() {
+    List _scanResultList = [];
+
+    print("BOXの長さ " + _scan_result_box.length.toString());
+
+    for (var i = 0; i < _scan_result_box.length; i++) {
+      _scanResultList.add(_scan_result_box.getAt(i));
+    }
+
+    return _scanResultList;
   }
 }

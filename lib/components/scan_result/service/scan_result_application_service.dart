@@ -16,4 +16,8 @@ class ScanResultApplicationService {
 
     await scanResultRepository.store(command.path, filename);
   }
+
+  index() {
+    return scanResultRepository.getAll();
+  }
 }

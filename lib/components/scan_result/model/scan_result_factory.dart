@@ -8,6 +8,6 @@ import 'i_scan_result_factiory.dart';
 class  ScanResultFactory implements IScanResultFactory {
   @override
   ScanResult create() {
-    return ScanResult(Uuid().v4());
+    return ScanResult(Uuid().v4(), DateTime.now());
   }
 }

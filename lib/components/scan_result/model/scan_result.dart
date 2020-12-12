@@ -12,6 +12,8 @@ class ScanResult extends HiveObject {
   final String id;
   @HiveField(1)
   HiveList<FontInformation> fontInformationList;
+  @HiveField(2)
+  final DateTime dateTime;
 
-  ScanResult(this.id);
+  ScanResult(this.id, this.dateTime);
 }

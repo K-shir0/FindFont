@@ -18,17 +18,20 @@ class ScanResultAdapter extends TypeAdapter<ScanResult> {
     };
     return ScanResult(
       fields[0] as String,
+      fields[2] as DateTime,
     )..fontInformationList = (fields[1] as HiveList)?.castHiveList();
   }
 
   @override
   void write(BinaryWriter writer, ScanResult obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.fontInformationList);
+      ..write(obj.fontInformationList)
+      ..writeByte(2)
+      ..write(obj.dateTime);
   }
 
   @override
