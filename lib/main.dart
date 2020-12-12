@@ -49,10 +49,12 @@ class Router extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: (settings) {
+        // Indexページ
         if (settings.name == '/') {
           return MaterialPageRoute(builder: (context) => IndexPage());
         }
 
+        // カメラページ
         if (settings.name == '/camera') {
           return MaterialPageRoute(builder: (context) => CameraPage(camera: firstCamera));
         }
