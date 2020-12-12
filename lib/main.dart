@@ -5,6 +5,7 @@ import 'package:find_font/components/scan_result/repository/scan_result_reposito
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:find_font/pages/CameraPage.dart';
+import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
 import 'package:flutter/material.dart';
@@ -62,6 +63,11 @@ class Router extends StatelessWidget {
         if (settings.name == '/camera') {
           return MaterialPageRoute(builder: (context) => CameraPage(camera: firstCamera));
         }
+
+        if (settings.name == '/font_log') {
+          return MaterialPageRoute(builder: (context) => FontLogPage());
+        }
+
 
         return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
       },

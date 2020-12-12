@@ -70,7 +70,7 @@ class IndexPage extends StatelessWidget {
                             child: FloatingActionButton(
                               heroTag: 'TopButtonFontLog',
                               onPressed: () =>
-                                  Navigator.of(context).pushNamed('/fontlog'),
+                                  Navigator.of(context).pushNamed('/font_log'),
                               child: TopButton(
                                 width: topIconSubButtonSize,
                                 height: topIconSubButtonSize,
