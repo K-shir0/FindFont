@@ -95,15 +95,23 @@ class IndexPage extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        TopButton(
-                          width: topIconSubButtonSize,
-                          height: topIconSubButtonSize,
-                          svgPath: 'assets/svg/icon_top_setting.svg',
-                        ),
+                        Container(
+                            width: topIconSubButtonSize,
+                            height: topIconSubButtonSize,
+                            child: FloatingActionButton(
+                              heroTag: 'TopButtonSetting',
+                              onPressed: () =>
+                                  Navigator.of(context).pushNamed('/font_result'),
+                              child: TopButton(
+                                width: topIconSubButtonSize,
+                                height: topIconSubButtonSize,
+                                svgPath: 'assets/svg/icon_top_setting.svg',
+                              ),
+                            )),
                         Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            '設定',
+                            'フォント履歴',
                             style: TextStyle(
                               fontFamily: 'YuGothic',
                               fontSize: 16,
@@ -113,9 +121,9 @@ class IndexPage extends StatelessWidget {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               )
