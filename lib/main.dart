@@ -70,9 +70,11 @@ class Router extends StatelessWidget {
           return MaterialPageRoute(builder: (context) => FontLogPage());
         }
 
-        // フォント結果
-        if (settings.name == '/font_result') {
-          return MaterialPageRoute(builder: (context) => CameraResultPage());
+        // フォント結果/:id
+        var uri = Uri.parse(settings.name);
+        if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_result') {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(builder: (context) => CameraResultPage(1));
         }
 
 

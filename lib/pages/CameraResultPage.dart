@@ -3,6 +3,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class CameraResultPage extends HookWidget {
+  final int id;
+
+  CameraResultPage(this.id);
+
+  // 取ってくる処理
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
