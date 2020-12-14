@@ -93,5 +93,799 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+
+#  fonts:
+#    - family: Alata
+#      fonts:
+#        - asset: assets/fonts/Alata-Regular.ttf
+
+  fonts:
+    - family: Alata-Regular
+      fonts:
+        - asset: assets/fonts/Alata-Regular.ttf
+    - family: BalsamiqSans-Bold
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-Bold.ttf
+    - family: BalsamiqSans-BoldItalic
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-BoldItalic.ttf
+    - family: BalsamiqSans-Italic
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-Italic.ttf
+    - family: BalsamiqSans-Regular
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-Regular.ttf
+    - family: BebasNeue-Regular
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf
+    - family: KronaOne-Regular
+      fonts:
+        - asset: assets/fonts/KronaOne-Regular.ttf
+    - family: Lato-Black
+      fonts:
+        - asset: assets/fonts/Lato-Black.ttf
+    - family: Lato-BlackItalic
+      fonts:
+        - asset: assets/fonts/Lato-BlackItalic.ttf
+    - family: Lato-Bold
+      fonts:
+        - asset: assets/fonts/Lato-Bold.ttf
+    - family: Lato-BoldItalic
+      fonts:
+        - asset: assets/fonts/Lato-BoldItalic.ttf
+    - family: Lato-Italic
+      fonts:
+        - asset: assets/fonts/Lato-Italic.ttf
+    - family: Lato-Light
+      fonts:
+        - asset: assets/fonts/Lato-Light.ttf
+    - family: Lato-LightItalic
+      fonts:
+        - asset: assets/fonts/Lato-LightItalic.ttf
+    - family: Lato-Regular
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+    - family: Lato-Thin
+      fonts:
+        - asset: assets/fonts/Lato-Thin.ttf
+    - family: Lato-ThinItalic
+      fonts:
+        - asset: assets/fonts/Lato-ThinItalic.ttf
+    - family: LexendPeta-Regular
+      fonts:
+        - asset: assets/fonts/LexendPeta-Regular.ttf
+    - family: Lora-Bold
+      fonts:
+        - asset: assets/fonts/Lora-Bold.ttf
+    - family: Lora-BoldItalic
+      fonts:
+        - asset: assets/fonts/Lora-BoldItalic.ttf
+    - family: Lora-Italic
+      fonts:
+        - asset: assets/fonts/Lora-Italic.ttf
+    - family: Lora-Medium
+      fonts:
+        - asset: assets/fonts/Lora-Medium.ttf
+    - family: Lora-MediumItalic
+      fonts:
+        - asset: assets/fonts/Lora-MediumItalic.ttf
+    - family: Lora-Regular
+      fonts:
+        - asset: assets/fonts/Lora-Regular.ttf
+    - family: Lora-SemiBold
+      fonts:
+        - asset: assets/fonts/Lora-SemiBold.ttf
+    - family: Lora-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Lora-SemiBoldItalic.ttf
+    - family: Merriweather-Black
+      fonts:
+        - asset: assets/fonts/Merriweather-Black.ttf
+    - family: Merriweather-BlackItalic
+      fonts:
+        - asset: assets/fonts/Merriweather-BlackItalic.ttf
+    - family: Merriweather-Bold
+      fonts:
+        - asset: assets/fonts/Merriweather-Bold.ttf
+    - family: Merriweather-BoldItalic
+      fonts:
+        - asset: assets/fonts/Merriweather-BoldItalic.ttf
+    - family: Merriweather-Italic
+      fonts:
+        - asset: assets/fonts/Merriweather-Italic.ttf
+    - family: Merriweather-Light
+      fonts:
+        - asset: assets/fonts/Merriweather-Light.ttf
+    - family: Merriweather-LightItalic
+      fonts:
+        - asset: assets/fonts/Merriweather-LightItalic.ttf
+    - family: Merriweather-Regular
+      fonts:
+        - asset: assets/fonts/Merriweather-Regular.ttf
+    - family: Montserrat-Black
+      fonts:
+        - asset: assets/fonts/Montserrat-Black.ttf
+    - family: Montserrat-BlackItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-BlackItalic.ttf
+    - family: Montserrat-Bold
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+    - family: Montserrat-BoldItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-BoldItalic.ttf
+    - family: Montserrat-ExtraBold
+      fonts:
+        - asset: assets/fonts/Montserrat-ExtraBold.ttf
+    - family: Montserrat-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-ExtraBoldItalic.ttf
+    - family: Montserrat-ExtraLight
+      fonts:
+        - asset: assets/fonts/Montserrat-ExtraLight.ttf
+    - family: Montserrat-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-ExtraLightItalic.ttf
+    - family: Montserrat-Italic
+      fonts:
+        - asset: assets/fonts/Montserrat-Italic.ttf
+    - family: Montserrat-Light
+      fonts:
+        - asset: assets/fonts/Montserrat-Light.ttf
+    - family: Montserrat-LightItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-LightItalic.ttf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+    - family: Montserrat-MediumItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-MediumItalic.ttf
+    - family: Montserrat-Regular
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+    - family: Montserrat-SemiBold
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+    - family: Montserrat-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBoldItalic.ttf
+    - family: Montserrat-Thin
+      fonts:
+        - asset: assets/fonts/Montserrat-Thin.ttf
+    - family: Montserrat-ThinItalic
+      fonts:
+        - asset: assets/fonts/Montserrat-ThinItalic.ttf
+    - family: Mukta-Bold
+      fonts:
+        - asset: assets/fonts/Mukta-Bold.ttf
+    - family: Mukta-ExtraBold
+      fonts:
+        - asset: assets/fonts/Mukta-ExtraBold.ttf
+    - family: Mukta-ExtraLight
+      fonts:
+        - asset: assets/fonts/Mukta-ExtraLight.ttf
+    - family: Mukta-Light
+      fonts:
+        - asset: assets/fonts/Mukta-Light.ttf
+    - family: Mukta-Medium
+      fonts:
+        - asset: assets/fonts/Mukta-Medium.ttf
+    - family: Mukta-Regular
+      fonts:
+        - asset: assets/fonts/Mukta-Regular.ttf
+    - family: Mukta-SemiBold
+      fonts:
+        - asset: assets/fonts/Mukta-SemiBold.ttf
+    - family: NotoSans-Bold
+      fonts:
+        - asset: assets/fonts/NotoSans-Bold.ttf
+    - family: NotoSans-BoldItalic
+      fonts:
+        - asset: assets/fonts/NotoSans-BoldItalic.ttf
+    - family: NotoSans-Italic
+      fonts:
+        - asset: assets/fonts/NotoSans-Italic.ttf
+    - family: NotoSans-Regular
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+    - family: NotoSansJP-Black
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Black.otf
+    - family: NotoSansJP-Bold
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Bold.otf
+    - family: NotoSansJP-Light
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Light.otf
+    - family: NotoSansJP-Medium
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Medium.otf
+    - family: NotoSansJP-Regular
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Regular.otf
+    - family: NotoSansJP-Thin
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Thin.otf
+    - family: NotoSansKR-Black
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Black.otf
+    - family: NotoSansKR-Bold
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Bold.otf
+    - family: NotoSansKR-Light
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Light.otf
+    - family: NotoSansKR-Medium
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Medium.otf
+    - family: NotoSansKR-Regular
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Regular.otf
+    - family: NotoSansKR-Thin
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Thin.otf
+    - family: NotoSerif-Bold
+      fonts:
+        - asset: assets/fonts/NotoSerif-Bold.ttf
+    - family: NotoSerif-BoldItalic
+      fonts:
+        - asset: assets/fonts/NotoSerif-BoldItalic.ttf
+    - family: NotoSerif-Italic
+      fonts:
+        - asset: assets/fonts/NotoSerif-Italic.ttf
+    - family: NotoSerif-Regular
+      fonts:
+        - asset: assets/fonts/NotoSerif-Regular.ttf
+    - family: Nunito-Black
+      fonts:
+        - asset: assets/fonts/Nunito-Black.ttf
+    - family: Nunito-BlackItalic
+      fonts:
+        - asset: assets/fonts/Nunito-BlackItalic.ttf
+    - family: Nunito-Bold
+      fonts:
+        - asset: assets/fonts/Nunito-Bold.ttf
+    - family: Nunito-BoldItalic
+      fonts:
+        - asset: assets/fonts/Nunito-BoldItalic.ttf
+    - family: Nunito-ExtraBold
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+    - family: Nunito-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraBoldItalic.ttf
+    - family: Nunito-ExtraLight
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+    - family: Nunito-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLightItalic.ttf
+    - family: Nunito-Italic
+      fonts:
+        - asset: assets/fonts/Nunito-Italic.ttf
+    - family: Nunito-Light
+      fonts:
+        - asset: assets/fonts/Nunito-Light.ttf
+    - family: Nunito-LightItalic
+      fonts:
+        - asset: assets/fonts/Nunito-LightItalic.ttf
+    - family: Nunito-Regular
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+    - family: Nunito-SemiBold
+      fonts:
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+    - family: Nunito-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Nunito-SemiBoldItalic.ttf
+    - family: OpenSans-Bold
+      fonts:
+        - asset: assets/fonts/OpenSans-Bold.ttf
+    - family: OpenSans-BoldItalic
+      fonts:
+        - asset: assets/fonts/OpenSans-BoldItalic.ttf
+    - family: OpenSans-ExtraBold
+      fonts:
+        - asset: assets/fonts/OpenSans-ExtraBold.ttf
+    - family: OpenSans-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/OpenSans-ExtraBoldItalic.ttf
+    - family: OpenSans-Italic
+      fonts:
+        - asset: assets/fonts/OpenSans-Italic.ttf
+    - family: OpenSans-Light
+      fonts:
+        - asset: assets/fonts/OpenSans-Light.ttf
+    - family: OpenSans-LightItalic
+      fonts:
+        - asset: assets/fonts/OpenSans-LightItalic.ttf
+    - family: OpenSans-Regular
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+    - family: OpenSans-SemiBold
+      fonts:
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+    - family: OpenSans-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/OpenSans-SemiBoldItalic.ttf
+    - family: OpenSansCondensed-Bold
+      fonts:
+        - asset: assets/fonts/OpenSansCondensed-Bold.ttf
+    - family: OpenSansCondensed-Light
+      fonts:
+        - asset: assets/fonts/OpenSansCondensed-Light.ttf
+    - family: OpenSansCondensed-LightItalic
+      fonts:
+        - asset: assets/fonts/OpenSansCondensed-LightItalic.ttf
+    - family: Oswald-Bold
+      fonts:
+        - asset: assets/fonts/Oswald-Bold.ttf
+    - family: Oswald-ExtraLight
+      fonts:
+        - asset: assets/fonts/Oswald-ExtraLight.ttf
+    - family: Oswald-Light
+      fonts:
+        - asset: assets/fonts/Oswald-Light.ttf
+    - family: Oswald-Medium
+      fonts:
+        - asset: assets/fonts/Oswald-Medium.ttf
+    - family: Oswald-Regular
+      fonts:
+        - asset: assets/fonts/Oswald-Regular.ttf
+    - family: Oswald-SemiBold
+      fonts:
+        - asset: assets/fonts/Oswald-SemiBold.ttf
+    - family: PTSans-Bold
+      fonts:
+        - asset: assets/fonts/PTSans-Bold.ttf
+    - family: PTSans-BoldItalic
+      fonts:
+        - asset: assets/fonts/PTSans-BoldItalic.ttf
+    - family: PTSans-Italic
+      fonts:
+        - asset: assets/fonts/PTSans-Italic.ttf
+    - family: PTSans-Regular
+      fonts:
+        - asset: assets/fonts/PTSans-Regular.ttf
+    - family: PTSerif-Bold
+      fonts:
+        - asset: assets/fonts/PTSerif-Bold.ttf
+    - family: PTSerif-BoldItalic
+      fonts:
+        - asset: assets/fonts/PTSerif-BoldItalic.ttf
+    - family: PTSerif-Italic
+      fonts:
+        - asset: assets/fonts/PTSerif-Italic.ttf
+    - family: PTSerif-Regular
+      fonts:
+        - asset: assets/fonts/PTSerif-Regular.ttf
+    - family: PlayfairDisplay-Black
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Black.ttf
+    - family: PlayfairDisplay-BlackItalic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-BlackItalic.ttf
+    - family: PlayfairDisplay-Bold
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+    - family: PlayfairDisplay-BoldItalic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-BoldItalic.ttf
+    - family: PlayfairDisplay-ExtraBold
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-ExtraBold.ttf
+    - family: PlayfairDisplay-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-ExtraBoldItalic.ttf
+    - family: PlayfairDisplay-Italic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
+    - family: PlayfairDisplay-Medium
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Medium.ttf
+    - family: PlayfairDisplay-MediumItalic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-MediumItalic.ttf
+    - family: PlayfairDisplay-Regular
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+    - family: PlayfairDisplay-SemiBold
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-SemiBold.ttf
+    - family: PlayfairDisplay-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf
+    - family: Poppins-Black
+      fonts:
+        - asset: assets/fonts/Poppins-Black.ttf
+    - family: Poppins-BlackItalic
+      fonts:
+        - asset: assets/fonts/Poppins-BlackItalic.ttf
+    - family: Poppins-Bold
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+    - family: Poppins-BoldItalic
+      fonts:
+        - asset: assets/fonts/Poppins-BoldItalic.ttf
+    - family: Poppins-ExtraBold
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+    - family: Poppins-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraBoldItalic.ttf
+    - family: Poppins-ExtraLight
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLight.ttf
+    - family: Poppins-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLightItalic.ttf
+    - family: Poppins-Italic
+      fonts:
+        - asset: assets/fonts/Poppins-Italic.ttf
+    - family: Poppins-Light
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+    - family: Poppins-LightItalic
+      fonts:
+        - asset: assets/fonts/Poppins-LightItalic.ttf
+    - family: Poppins-Medium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.ttf
+    - family: Poppins-MediumItalic
+      fonts:
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+    - family: Poppins-Regular
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+    - family: Poppins-SemiBold
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+    - family: Poppins-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+    - family: Poppins-Thin
+      fonts:
+        - asset: assets/fonts/Poppins-Thin.ttf
+    - family: Poppins-ThinItalic
+      fonts:
+        - asset: assets/fonts/Poppins-ThinItalic.ttf
+    - family: Raleway-Black
+      fonts:
+        - asset: assets/fonts/Raleway-Black.ttf
+    - family: Raleway-BlackItalic
+      fonts:
+        - asset: assets/fonts/Raleway-BlackItalic.ttf
+    - family: Raleway-Bold
+      fonts:
+        - asset: assets/fonts/Raleway-Bold.ttf
+    - family: Raleway-BoldItalic
+      fonts:
+        - asset: assets/fonts/Raleway-BoldItalic.ttf
+    - family: Raleway-ExtraBold
+      fonts:
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+    - family: Raleway-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/Raleway-ExtraBoldItalic.ttf
+    - family: Raleway-ExtraLight
+      fonts:
+        - asset: assets/fonts/Raleway-ExtraLight.ttf
+    - family: Raleway-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/Raleway-ExtraLightItalic.ttf
+    - family: Raleway-Italic
+      fonts:
+        - asset: assets/fonts/Raleway-Italic.ttf
+    - family: Raleway-Light
+      fonts:
+        - asset: assets/fonts/Raleway-Light.ttf
+    - family: Raleway-LightItalic
+      fonts:
+        - asset: assets/fonts/Raleway-LightItalic.ttf
+    - family: Raleway-Medium
+      fonts:
+        - asset: assets/fonts/Raleway-Medium.ttf
+    - family: Raleway-MediumItalic
+      fonts:
+        - asset: assets/fonts/Raleway-MediumItalic.ttf
+    - family: Raleway-Regular
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+    - family: Raleway-SemiBold
+      fonts:
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+    - family: Raleway-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Raleway-SemiBoldItalic.ttf
+    - family: Raleway-Thin
+      fonts:
+        - asset: assets/fonts/Raleway-Thin.ttf
+    - family: Raleway-ThinItalic
+      fonts:
+        - asset: assets/fonts/Raleway-ThinItalic.ttf
+    - family: Roboto-Black
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+    - family: Roboto-BlackItalic
+      fonts:
+        - asset: assets/fonts/Roboto-BlackItalic.ttf
+    - family: Roboto-Bold
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+    - family: Roboto-BoldItalic
+      fonts:
+        - asset: assets/fonts/Roboto-BoldItalic.ttf
+    - family: Roboto-Italic
+      fonts:
+        - asset: assets/fonts/Roboto-Italic.ttf
+    - family: Roboto-Light
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: Roboto-LightItalic
+      fonts:
+        - asset: assets/fonts/Roboto-LightItalic.ttf
+    - family: Roboto-Medium
+      fonts:
+        - asset: assets/fonts/Roboto-Medium.ttf
+    - family: Roboto-MediumItalic
+      fonts:
+        - asset: assets/fonts/Roboto-MediumItalic.ttf
+    - family: Roboto-Regular
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: Roboto-Thin
+      fonts:
+        - asset: assets/fonts/Roboto-Thin.ttf
+    - family: Roboto-ThinItalic
+      fonts:
+        - asset: assets/fonts/Roboto-ThinItalic.ttf
+    - family: RobotoCondensed-Bold
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Bold.ttf
+    - family: RobotoCondensed-BoldItalic
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-BoldItalic.ttf
+    - family: RobotoCondensed-Italic
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Italic.ttf
+    - family: RobotoCondensed-Light
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Light.ttf
+    - family: RobotoCondensed-LightItalic
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-LightItalic.ttf
+    - family: RobotoCondensed-Regular
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Regular.ttf
+    - family: RobotoMono-Bold
+      fonts:
+        - asset: assets/fonts/RobotoMono-Bold.ttf
+    - family: RobotoMono-BoldItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-BoldItalic.ttf
+    - family: RobotoMono-ExtraLight
+      fonts:
+        - asset: assets/fonts/RobotoMono-ExtraLight.ttf
+    - family: RobotoMono-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-ExtraLightItalic.ttf
+    - family: RobotoMono-Italic
+      fonts:
+        - asset: assets/fonts/RobotoMono-Italic.ttf
+    - family: RobotoMono-Light
+      fonts:
+        - asset: assets/fonts/RobotoMono-Light.ttf
+    - family: RobotoMono-LightItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-LightItalic.ttf
+    - family: RobotoMono-Medium
+      fonts:
+        - asset: assets/fonts/RobotoMono-Medium.ttf
+    - family: RobotoMono-MediumItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-MediumItalic.ttf
+    - family: RobotoMono-Regular
+      fonts:
+        - asset: assets/fonts/RobotoMono-Regular.ttf
+    - family: RobotoMono-SemiBold
+      fonts:
+        - asset: assets/fonts/RobotoMono-SemiBold.ttf
+    - family: RobotoMono-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-SemiBoldItalic.ttf
+    - family: RobotoMono-Thin
+      fonts:
+        - asset: assets/fonts/RobotoMono-Thin.ttf
+    - family: RobotoMono-ThinItalic
+      fonts:
+        - asset: assets/fonts/RobotoMono-ThinItalic.ttf
+    - family: RobotoSlab-Black
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Black.ttf
+    - family: RobotoSlab-Bold
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Bold.ttf
+    - family: RobotoSlab-ExtraBold
+      fonts:
+        - asset: assets/fonts/RobotoSlab-ExtraBold.ttf
+    - family: RobotoSlab-ExtraLight
+      fonts:
+        - asset: assets/fonts/RobotoSlab-ExtraLight.ttf
+    - family: RobotoSlab-Light
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Light.ttf
+    - family: RobotoSlab-Medium
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Medium.ttf
+    - family: RobotoSlab-Regular
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Regular.ttf
+    - family: RobotoSlab-SemiBold
+      fonts:
+        - asset: assets/fonts/RobotoSlab-SemiBold.ttf
+    - family: RobotoSlab-Thin
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Thin.ttf
+    - family: Rubik-Black
+      fonts:
+        - asset: assets/fonts/Rubik-Black.ttf
+    - family: Rubik-BlackItalic
+      fonts:
+        - asset: assets/fonts/Rubik-BlackItalic.ttf
+    - family: Rubik-Bold
+      fonts:
+        - asset: assets/fonts/Rubik-Bold.ttf
+    - family: Rubik-BoldItalic
+      fonts:
+        - asset: assets/fonts/Rubik-BoldItalic.ttf
+    - family: Rubik-ExtraBold
+      fonts:
+        - asset: assets/fonts/Rubik-ExtraBold.ttf
+    - family: Rubik-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/Rubik-ExtraBoldItalic.ttf
+    - family: Rubik-Italic
+      fonts:
+        - asset: assets/fonts/Rubik-Italic.ttf
+    - family: Rubik-Light
+      fonts:
+        - asset: assets/fonts/Rubik-Light.ttf
+    - family: Rubik-LightItalic
+      fonts:
+        - asset: assets/fonts/Rubik-LightItalic.ttf
+    - family: Rubik-Medium
+      fonts:
+        - asset: assets/fonts/Rubik-Medium.ttf
+    - family: Rubik-MediumItalic
+      fonts:
+        - asset: assets/fonts/Rubik-MediumItalic.ttf
+    - family: Rubik-Regular
+      fonts:
+        - asset: assets/fonts/Rubik-Regular.ttf
+    - family: Rubik-SemiBold
+      fonts:
+        - asset: assets/fonts/Rubik-SemiBold.ttf
+    - family: Rubik-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Rubik-SemiBoldItalic.ttf
+    - family: RussoOne-Regular
+      fonts:
+        - asset: assets/fonts/RussoOne-Regular.ttf
+    - family: SourceSansPro-Black
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Black.ttf
+    - family: SourceSansPro-BlackItalic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-BlackItalic.ttf
+    - family: SourceSansPro-Bold
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Bold.ttf
+    - family: SourceSansPro-BoldItalic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-BoldItalic.ttf
+    - family: SourceSansPro-ExtraLight
+      fonts:
+        - asset: assets/fonts/SourceSansPro-ExtraLight.ttf
+    - family: SourceSansPro-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-ExtraLightItalic.ttf
+    - family: SourceSansPro-Italic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Italic.ttf
+    - family: SourceSansPro-Light
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Light.ttf
+    - family: SourceSansPro-LightItalic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-LightItalic.ttf
+    - family: SourceSansPro-Regular
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Regular.ttf
+    - family: SourceSansPro-SemiBold
+      fonts:
+        - asset: assets/fonts/SourceSansPro-SemiBold.ttf
+    - family: SourceSansPro-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/SourceSansPro-SemiBoldItalic.ttf
+    - family: Ubuntu-Bold
+      fonts:
+        - asset: assets/fonts/Ubuntu-Bold.ttf
+    - family: Ubuntu-BoldItalic
+      fonts:
+        - asset: assets/fonts/Ubuntu-BoldItalic.ttf
+    - family: Ubuntu-Italic
+      fonts:
+        - asset: assets/fonts/Ubuntu-Italic.ttf
+    - family: Ubuntu-Light
+      fonts:
+        - asset: assets/fonts/Ubuntu-Light.ttf
+    - family: Ubuntu-LightItalic
+      fonts:
+        - asset: assets/fonts/Ubuntu-LightItalic.ttf
+    - family: Ubuntu-Medium
+      fonts:
+        - asset: assets/fonts/Ubuntu-Medium.ttf
+    - family: Ubuntu-MediumItalic
+      fonts:
+        - asset: assets/fonts/Ubuntu-MediumItalic.ttf
+    - family: Ubuntu-Regular
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+    - family: WorkSans-Black
+      fonts:
+        - asset: assets/fonts/WorkSans-Black.ttf
+    - family: WorkSans-BlackItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-BlackItalic.ttf
+    - family: WorkSans-Bold
+      fonts:
+        - asset: assets/fonts/WorkSans-Bold.ttf
+    - family: WorkSans-BoldItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-BoldItalic.ttf
+    - family: WorkSans-ExtraBold
+      fonts:
+        - asset: assets/fonts/WorkSans-ExtraBold.ttf
+    - family: WorkSans-ExtraBoldItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-ExtraBoldItalic.ttf
+    - family: WorkSans-ExtraLight
+      fonts:
+        - asset: assets/fonts/WorkSans-ExtraLight.ttf
+    - family: WorkSans-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-ExtraLightItalic.ttf
+    - family: WorkSans-Italic
+      fonts:
+        - asset: assets/fonts/WorkSans-Italic.ttf
+    - family: WorkSans-Light
+      fonts:
+        - asset: assets/fonts/WorkSans-Light.ttf
+    - family: WorkSans-LightItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-LightItalic.ttf
+    - family: WorkSans-Medium
+      fonts:
+        - asset: assets/fonts/WorkSans-Medium.ttf
+    - family: WorkSans-MediumItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-MediumItalic.ttf
+    - family: WorkSans-Regular
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+    - family: WorkSans-SemiBold
+      fonts:
+        - asset: assets/fonts/WorkSans-SemiBold.ttf
+    - family: WorkSans-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-SemiBoldItalic.ttf
+    - family: WorkSans-Thin
+      fonts:
+        - asset: assets/fonts/WorkSans-Thin.ttf
+    - family: WorkSans-ThinItalic
+      fonts:
+        - asset: assets/fonts/WorkSans-ThinItalic.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

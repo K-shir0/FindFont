@@ -25,7 +25,7 @@ class FontLogPage extends HookWidget {
         centerTitle: true,
       ),
       // scanResultがnullかどうか
-      body: scanResult.isEmpty
+      body: !scanResult.isEmpty
           ? ListView.builder(
               padding: EdgeInsets.only(top: 1, bottom: 1),
               itemBuilder: (BuildContext context, int index) {
@@ -44,6 +44,8 @@ class FontLogPage extends HookWidget {
   Widget _fontLogList(ScanResult scanResult) {
     var formatter = new DateFormat('yyyy.MM.dd');
     var fontInformation = scanResult.fontInformationList[0];
+
+    print(fontInformation.fontName);
 
     return Padding(
       padding: EdgeInsets.only(top: 12, bottom: 12),
@@ -68,7 +70,8 @@ class FontLogPage extends HookWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Center(
+              Flexible(
+                flex: 9,
                 child: Row(
                   children: [
                     Padding(
@@ -78,7 +81,9 @@ class FontLogPage extends HookWidget {
                           child: Center(
                             child: Text(
                               'F',
-                              style: TextStyle(fontSize: 32),
+                              style: TextStyle(
+                                  fontSize: 32,
+                                  fontFamily: fontInformation.fontFamily),
                             ),
                           )),
                     ),
@@ -90,24 +95,28 @@ class FontLogPage extends HookWidget {
                       ),
                     ),
                     Text(
-                      fontInformation.fontFamily != null
-                          ? '- ' + fontInformation.fontFamily
+                      fontInformation.style != ""
+                          ? '- ' + fontInformation.style
                           : '',
                       style: TextStyle(fontSize: 12),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    formatter.format(scanResult.dateTime),
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(right: 8, left: 16),
-                      child: SvgPicture.asset('assets/svg/next.svg'))
-                ],
+              Flexible(
+                flex: 3,
+                child: Row(
+                  children: [
+                    Text(
+                      formatter.format(scanResult.dateTime),
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.only(right: 8, left: 16),
+                        child: SvgPicture.asset('assets/svg/next.svg'))
+                  ],
+                ),
               ),
             ],
           ),

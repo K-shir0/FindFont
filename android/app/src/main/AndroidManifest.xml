@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.k_shir0.fint_font.find_font">
-   <application
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
         android:label="find_font"
         android:icon="@mipmap/ic_launcher">
         <activity
