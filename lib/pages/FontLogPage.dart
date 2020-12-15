@@ -33,7 +33,7 @@ class FontLogPage extends HookWidget {
 
                 if (index < scanResult.length) {
                   var scanLog = scanResult[index];
-                  return _fontLogList(scanLog);
+                  return _fontLogList(scanLog, context, index);
                 }
               },
             )
@@ -41,7 +41,7 @@ class FontLogPage extends HookWidget {
     );
   }
 
-  Widget _fontLogList(ScanResult scanResult) {
+  Widget _fontLogList(ScanResult scanResult, BuildContext context, int index) {
     var formatter = new DateFormat('yyyy.MM.dd');
     var fontInformation = scanResult.fontInformationList[0];
 
@@ -51,7 +51,8 @@ class FontLogPage extends HookWidget {
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: GestureDetector(
         onTap: () {
-          print("test");
+          print(index);
+          Navigator.of(context).pushNamed('/font_result/' + index.toString());
         },
         child: Container(
           decoration: BoxDecoration(

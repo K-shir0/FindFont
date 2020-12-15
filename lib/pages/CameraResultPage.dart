@@ -135,7 +135,7 @@ class OtherFont extends HookWidget {
           Text(
             fontInformation.fontName +
                 (fontInformation.style != ''
-                    ? ('- ' + fontInformation.style)
+                    ? (' - ' + fontInformation.style)
                     : ''),
             style: TextStyle(fontSize: 16),
           )

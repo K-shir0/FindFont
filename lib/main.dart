@@ -74,7 +74,7 @@ class Router extends StatelessWidget {
         var uri = Uri.parse(settings.name);
         if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_result') {
           var id = uri.pathSegments[1];
-          return MaterialPageRoute(builder: (context) => CameraResultPage(1));
+          return MaterialPageRoute(builder: (context) => CameraResultPage(int.parse(id)));
         }
 
 

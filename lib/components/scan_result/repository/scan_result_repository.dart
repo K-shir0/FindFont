@@ -299,8 +299,10 @@ class ScanResultRepository {
 
     // 取得処理
     try {
-      print("送信開始");
+      print("送信開始?");
       final response = await dio.post(url, data: formData);
+
+      print("送信完了");
 
       // 送信成功
       print(response.data['prediction']);
@@ -325,8 +327,10 @@ class ScanResultRepository {
       _scan_result_box.add(scanResult);
 
     } on DioError catch (e) {
+      throw e;
       print(e.message);
       print(e);
+      print('送信できませんでした');
     }
 
     // Map<String, dynamic> test =
