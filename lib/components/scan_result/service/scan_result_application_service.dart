@@ -20,4 +20,9 @@ class ScanResultApplicationService {
   index() {
     return scanResultRepository.getAll();
   }
+
+  getById(int id) {
+    return scanResultRepository.getById(id);
+  }
+
 }

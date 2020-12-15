@@ -365,4 +365,8 @@ class ScanResultRepository {
 
     return _scanResultList;
   }
+
+  getById(int id) {
+    return _scan_result_box.getAt(id);
+  }
 }
