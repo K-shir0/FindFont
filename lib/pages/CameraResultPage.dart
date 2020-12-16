@@ -20,8 +20,9 @@ class CameraResultPage extends HookWidget {
     ScanResult scanResult = _scanResultApplicationService.getById(id);
 
     final _checkboxFlg = useState(false);
+    final FontInformation topFontInformation = scanResult.fontInformationList[0];
 
-    _checkboxFlg.value = scanResult.fontInformationList[0].favorite;
+    _checkboxFlg.value = topFontInformation.favorite;
 
     return Scaffold(
       appBar: new AppBar(
@@ -39,13 +40,11 @@ class CameraResultPage extends HookWidget {
             children: [
               Checkbox(
                 onChanged: (bool value) {
+                  // 表示用のフラグを変更
                   _checkboxFlg.value = !_checkboxFlg.value;
-                  FontInformation fontInformation =
-                      scanResult.fontInformationList[0];
-                  fontInformation.favorite = !fontInformation.favorite;
-                  _scanResultApplicationService.edit(
-                      1, scanResult.fontInformationList[0]);
-                  print(_checkboxFlg.value);
+
+                  // 永続化のフラグを変更
+                  _scanResultApplicationService.favorite(topFontInformation);
                 },
                 value: _checkboxFlg.value,
               ),
@@ -59,14 +58,14 @@ class CameraResultPage extends HookWidget {
                         style: TextStyle(
                             fontSize: 36,
                             fontFamily:
-                                scanResult.fontInformationList[0].fontFamily),
+                                topFontInformation.fontFamily),
                       ),
                     )),
               ),
               Text(
-                scanResult.fontInformationList[0].fontName +
-                    (scanResult.fontInformationList[0].style != ''
-                        ? ('- ' + scanResult.fontInformationList[0].style)
+                topFontInformation.fontName +
+                    (topFontInformation.style != ''
+                        ? ('- ' + topFontInformation.style)
                         : ''),
                 style: TextStyle(fontSize: 24),
               )
@@ -92,10 +91,10 @@ class CameraResultPage extends HookWidget {
                   flex: 10,
                   child: Column(
                     children: [
-                      OtherFont(scanResult.fontInformationList[1]),
-                      OtherFont(scanResult.fontInformationList[2]),
-                      OtherFont(scanResult.fontInformationList[3]),
-                      OtherFont(scanResult.fontInformationList[4]),
+                      OtherFont(scanResult.fontInformationList[1], _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[2], _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[3], _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[4], _scanResultApplicationService),
                     ],
                   ),
                 ),
@@ -114,11 +113,13 @@ class CameraResultPage extends HookWidget {
 
 class OtherFont extends HookWidget {
   FontInformation fontInformation;
+  ScanResultApplicationService scanResultApplicationService;
 
-  OtherFont(this.fontInformation);
+  OtherFont(this.fontInformation, this.scanResultApplicationService);
 
   @override
   Widget build(BuildContext context) {
+    // お気に入り用のフラグ
     var checkBoxflg = useState(fontInformation.favorite);
 
     return Padding(
@@ -128,8 +129,11 @@ class OtherFont extends HookWidget {
         children: [
           Checkbox(
             onChanged: (bool value) {
+              // 表示用のフラグを変更
               checkBoxflg.value = !checkBoxflg.value;
-              fontInformation.favorite = !fontInformation.favorite;
+
+              // 永続化のフラグを変更
+              scanResultApplicationService.favorite(fontInformation);
             },
             value: checkBoxflg.value,
           ),

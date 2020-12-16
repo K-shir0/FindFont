@@ -6,14 +6,16 @@ part 'font_information.g.dart';
 @HiveType(typeId: 2)
 class FontInformation extends HiveObject {
   @HiveField(0)
-  final String fontFamily;
+  final int id;
   @HiveField(1)
-  final String fontName;
+  final String fontFamily;
   @HiveField(2)
-  final String style;
+  final String fontName;
   @HiveField(3)
+  final String style;
+  @HiveField(4)
   bool favorite;
 
-  FontInformation(this.fontFamily, this.fontName, this.style, this.favorite);
+  FontInformation(this.id, this.fontFamily, this.fontName, this.style, this.favorite);
 
 }

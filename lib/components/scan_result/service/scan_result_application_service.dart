@@ -29,7 +29,9 @@ class ScanResultApplicationService {
     return scanResultRepository.getById(id);
   }
 
-  edit(int id, FontInformation fontInformation) {
-    // scanResultRepository.edit(id, scanResult);
+  favorite(FontInformation fontInformation) {
+    fontInformation.favorite = !fontInformation.favorite;
+
+    scanResultRepository.edit(fontInformation);
   }
 }
