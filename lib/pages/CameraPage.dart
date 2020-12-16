@@ -9,6 +9,7 @@ import 'package:find_font/components/scan_result/scan_result_register_command.da
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -16,24 +17,18 @@ import 'package:state_notifier/state_notifier.dart';
 
 import '../main.dart';
 
-final _scanResultServiceProvider = ChangeNotifierProvider(
-        (ref) => new ScanResultApplicationServiceNotifier()
-);
-
 class CameraPage extends StatefulWidget {
   final double topIconMainSize = 78.0;
   final double topIconSubButtonSize = 44.0;
 
   final CameraDescription camera;
+  final ScanResultApplicationService scanResultApplicationService;
 
-  CameraPage({
-    Key key,
-    @required this.camera,
-  }) : super(key: key);
+  CameraPage(this.camera, this.scanResultApplicationService);
 
   @override
   Widget build(BuildContext context) {
-    // final test = Provider(_scanResultServiceProvider);
+    // useProvider(_scanResultServiceProvider) = scanResultApplicationService;
 
     return new Scaffold(
       appBar: new AppBar(
@@ -80,7 +75,6 @@ class CameraPage extends StatefulWidget {
 class CameraPageState extends State<CameraPage> {
   CameraController _controller;
   Future<void> _initializeControllerFuture;
-  ScanResultApplicationService _scanResultApplicationService;
 
   final double topIconMainSize = 78.0;
   final double topIconSubButtonSize = 44.0;
@@ -88,11 +82,6 @@ class CameraPageState extends State<CameraPage> {
   @override
   void initState() {
     print('初期化');
-    final repository = new ScanResultRepository();
-
-    _scanResultApplicationService =
-        new ScanResultApplicationServiceFactory().create();
-
     // カメラの初期化
     _controller = CameraController(widget.camera, ResolutionPreset.medium);
 
@@ -108,14 +97,9 @@ class CameraPageState extends State<CameraPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    // final scanResultProvider = useProvider(_scanResultServiceProvider);
-
     return Scaffold(
       appBar: AppBar(title: Text('カメラ'), centerTitle: true),
       // カメラウィジェット
-      //
-      //
       body: new Container(
           color: Color(0xFF639CBF),
           child: Column(
@@ -187,7 +171,7 @@ class CameraPageState extends State<CameraPage> {
                                   ScanResultRegisterCommand command =
                                       new ScanResultRegisterCommand(path);
 
-                                  this.context.read(_scanResultServiceProvider).scanResultApplicationService.register(command);
+                                  widget.scanResultApplicationService.register(command);
 
                                   print('送信処理開始');
 

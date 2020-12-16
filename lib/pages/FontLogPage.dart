@@ -8,15 +8,15 @@ import 'package:intl/intl.dart';
 
 import '../main.dart';
 
-final _scanResultServiceProvider =
-    ChangeNotifierProvider((ref) => new ScanResultApplicationServiceNotifier());
 
 class FontLogPage extends HookWidget {
+  final _scanResultService;
+
+  FontLogPage(this._scanResultService);
+
   @override
   Widget build(BuildContext context) {
-    List scanResult = context
-        .read(_scanResultServiceProvider)
-        .scanResultApplicationService
+    List scanResult = _scanResultService
         .index();
 
     return Scaffold(

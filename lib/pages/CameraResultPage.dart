@@ -7,20 +7,18 @@ import 'package:hooks_riverpod/all.dart';
 
 import '../main.dart';
 
-final _scanResultServiceProvider =
-    ChangeNotifierProvider((ref) => new ScanResultApplicationServiceNotifier());
 
 class CameraResultPage extends HookWidget {
   final int id;
+  final _scanResultApplicationService;
 
-  CameraResultPage(this.id);
+  CameraResultPage(this._scanResultApplicationService ,this.id);
 
   // 取ってくる処理
 
   @override
   Widget build(BuildContext context) {
-    var scanResultApplicationService =
-        context.read(_scanResultServiceProvider).scanResultApplicationService;
+    var scanResultApplicationService = _scanResultApplicationService;
     ScanResult scanResult = scanResultApplicationService.getById(id);
 
     return Scaffold(

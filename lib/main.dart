@@ -15,11 +15,17 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/all.dart';
 
 import 'components/scan_result/model/scan_result.dart';
 import 'components/scan_result/model/scan_result.dart';
 
 CameraDescription firstCamera;
+
+final _scanResultServiceProvider = ChangeNotifierProvider(
+        (ref) => new ScanResultApplicationServiceNotifier()
+);
+
 
 Future main() async {
   // 環境変数ファイルの読み込み
@@ -50,9 +56,11 @@ Future main() async {
   );
 }
 
-class Router extends StatelessWidget {
+class Router extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    var _scanResultApplicationService = useProvider(_scanResultServiceProvider).scanResultApplicationService;
+
     return MaterialApp(
       onGenerateRoute: (settings) {
         // Indexページ
@@ -62,19 +70,19 @@ class Router extends StatelessWidget {
 
         // カメラページ
         if (settings.name == '/camera') {
-          return MaterialPageRoute(builder: (context) => CameraPage(camera: firstCamera));
+          return MaterialPageRoute(builder: (context) => CameraPage(firstCamera, _scanResultApplicationService));
         }
 
         // フォント履歴
         if (settings.name == '/font_log') {
-          return MaterialPageRoute(builder: (context) => FontLogPage());
+          return MaterialPageRoute(builder: (context) => FontLogPage(_scanResultApplicationService));
         }
 
         // フォント結果/:id
         var uri = Uri.parse(settings.name);
         if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_result') {
           var id = uri.pathSegments[1];
-          return MaterialPageRoute(builder: (context) => CameraResultPage(int.parse(id)));
+          return MaterialPageRoute(builder: (context) => CameraResultPage(_scanResultApplicationService ,int.parse(id)));
         }
 
 
@@ -91,6 +99,7 @@ class ScanResultApplicationServiceNotifier extends ChangeNotifier {
       _scanResultApplicationService;
 
   ScanResultApplicationServiceNotifier() {
+    print("登録");
     _scanResultApplicationService = new ScanResultApplicationServiceFactory().create();
   }
 }

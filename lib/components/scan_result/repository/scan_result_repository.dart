@@ -20,7 +20,7 @@ class ScanResultRepository {
     // _scan_result_box.clear();
 
     if(_fontInformationBox.length == 0) {
-      print("FontList初期化処理");
+      print("FontList初期化処理 - 開始");
 
       _fontInformationBox.add(new FontInformation("Mukta-ExtraBold", "Mukta", "ExtraBold", false ));
       _fontInformationBox.add(new FontInformation("RobotoSlab-Medium", "RobotoSlab", "Medium", false ));
@@ -284,9 +284,14 @@ class ScanResultRepository {
       _fontInformationBox.add(new FontInformation("NotoSansKR-Regular", "NotoSansKR", "", false ));
       _fontInformationBox.add(new FontInformation("NotoSans-Italic", "NotoSans", "Italic", false ));
       _fontInformationBox.add(new FontInformation("WorkSans-Bold", "WorkSans", "Bold", false ));
+
+      print("FontList初期化処理 - 完了");
     }
 
     print("box設置完了" + _fontInformationBox.length.toString());
+
+    print(this._scan_result_box.length);
+    print(this._scan_result_box.getAt(1));
   }
 
   Future<void> store(String path, String filename) async {
@@ -371,6 +376,6 @@ class ScanResultRepository {
   }
 
   getById(int id) {
-    return _scan_result_box.getAt(id);
+    return this._scan_result_box.getAt(id);
   }
 }
