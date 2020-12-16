@@ -101,7 +101,7 @@ class IndexPage extends StatelessWidget {
                             child: FloatingActionButton(
                               heroTag: 'TopButtonSetting',
                               onPressed: () =>
-                                  Navigator.of(context).pushNamed('/font_result/1'),
+                                  Navigator.of(context).pushNamed('/setting'),
                               child: TopButton(
                                 width: topIconSubButtonSize,
                                 height: topIconSubButtonSize,
@@ -111,7 +111,7 @@ class IndexPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            'フォント履歴',
+                            '設定',
                             style: TextStyle(
                               fontFamily: 'YuGothic',
                               fontSize: 16,

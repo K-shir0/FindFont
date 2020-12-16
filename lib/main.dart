@@ -9,6 +9,7 @@ import 'package:find_font/pages/CameraResultPage.dart';
 import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
+import 'package:find_font/pages/SettingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/all.dart';
@@ -83,6 +84,10 @@ class Router extends HookWidget {
         if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_result') {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(builder: (context) => CameraResultPage(_scanResultApplicationService ,int.parse(id)));
+        }
+
+        if (settings.name == '/setting') {
+          return MaterialPageRoute(builder: (context) => SettingPage());
         }
 
 
