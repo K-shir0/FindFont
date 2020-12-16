@@ -10,11 +10,13 @@ class ScanResultApplicationService {
   ScanResultApplicationService(
       this.scanResultFactory, this.scanResultRepository);
 
-  Future<void> register(ScanResultRegisterCommand command) async {
+  Future<bool> register(ScanResultRegisterCommand command) async {
     print('Register');
     final filename = command.path.split('/').last;
 
     await scanResultRepository.store(command.path, filename);
+
+    return true;
   }
 
   index() {

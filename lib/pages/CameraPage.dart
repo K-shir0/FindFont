@@ -165,16 +165,15 @@ class CameraPageState extends State<CameraPage> {
                                   // Attempt to take a picture and log where it's been saved.
                                   await _controller.takePicture(path);
 
-                                  print(path);
-
                                   print('処理開始');
                                   ScanResultRegisterCommand command =
-                                      new ScanResultRegisterCommand(path);
+                                  new ScanResultRegisterCommand(path);
 
-                                  widget.scanResultApplicationService.register(command);
+                                  if (await widget.scanResultApplicationService.register(command)) {
+                                    var length = widget.scanResultApplicationService.index().length - 1;
 
-                                  print('送信処理開始');
-
+                                    Navigator.of(context).pushNamed('/font_result/' + length.toString());
+                                  }
                                 } catch (e) {
                                   // If an error occurs, log the error to the console.
                                   print(e);
