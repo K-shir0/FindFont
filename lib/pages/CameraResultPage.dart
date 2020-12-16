@@ -1,5 +1,6 @@
 import 'package:find_font/components/scan_result/model/font_information.dart';
 import 'package:find_font/components/scan_result/model/scan_result.dart';
+import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -7,19 +8,20 @@ import 'package:hooks_riverpod/all.dart';
 
 import '../main.dart';
 
-
 class CameraResultPage extends HookWidget {
   final int id;
-  final _scanResultApplicationService;
+  final ScanResultApplicationService _scanResultApplicationService;
 
-  CameraResultPage(this._scanResultApplicationService ,this.id);
+  CameraResultPage(this._scanResultApplicationService, this.id);
 
   // 取ってくる処理
-
   @override
   Widget build(BuildContext context) {
-    var scanResultApplicationService = _scanResultApplicationService;
-    ScanResult scanResult = scanResultApplicationService.getById(id);
+    ScanResult scanResult = _scanResultApplicationService.getById(id);
+
+    final _checkboxFlg = useState(false);
+
+    _checkboxFlg.value = scanResult.fontInformationList[0].favorite;
 
     return Scaffold(
       appBar: new AppBar(
@@ -36,8 +38,16 @@ class CameraResultPage extends HookWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Checkbox(
-                onChanged: (bool value) {},
-                value: true,
+                onChanged: (bool value) {
+                  _checkboxFlg.value = !_checkboxFlg.value;
+                  FontInformation fontInformation =
+                      scanResult.fontInformationList[0];
+                  fontInformation.favorite = !fontInformation.favorite;
+                  _scanResultApplicationService.edit(
+                      1, scanResult.fontInformationList[0]);
+                  print(_checkboxFlg.value);
+                },
+                value: _checkboxFlg.value,
               ),
               Padding(
                 padding: EdgeInsets.only(),
@@ -109,14 +119,19 @@ class OtherFont extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    var checkBoxflg = useState(fontInformation.favorite);
+
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Checkbox(
-            onChanged: (bool value) {},
-            value: true,
+            onChanged: (bool value) {
+              checkBoxflg.value = !checkBoxflg.value;
+              fontInformation.favorite = !fontInformation.favorite;
+            },
+            value: checkBoxflg.value,
           ),
           Padding(
             padding: EdgeInsets.only(),

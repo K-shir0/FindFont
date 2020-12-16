@@ -1,4 +1,6 @@
+import 'package:find_font/components/scan_result/model/font_information.dart';
 import 'package:find_font/components/scan_result/model/i_scan_result_factiory.dart';
+import 'package:find_font/components/scan_result/model/scan_result.dart';
 import 'package:find_font/components/scan_result/repository/scan_result_repository.dart';
 
 import '../scan_result_register_command.dart';
@@ -27,4 +29,7 @@ class ScanResultApplicationService {
     return scanResultRepository.getById(id);
   }
 
+  edit(int id, FontInformation fontInformation) {
+    // scanResultRepository.edit(id, scanResult);
+  }
 }

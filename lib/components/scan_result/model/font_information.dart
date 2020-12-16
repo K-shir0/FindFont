@@ -12,7 +12,8 @@ class FontInformation extends HiveObject {
   @HiveField(2)
   final String style;
   @HiveField(3)
-  final bool favorite;
+  bool favorite;
 
   FontInformation(this.fontFamily, this.fontName, this.style, this.favorite);
+
 }

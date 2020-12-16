@@ -378,4 +378,14 @@ class ScanResultRepository {
   getById(int id) {
     return this._scan_result_box.getAt(id);
   }
+
+  edit(int id) {
+    FontInformation fontInformation = _fontInformationBox.get(id);
+
+    fontInformation.favorite = !fontInformation.favorite;
+
+    _fontInformationBox.putAt(id, fontInformation);
+
+    return true;
+  }
 }
