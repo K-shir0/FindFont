@@ -14,7 +14,8 @@ class FavoriteListPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    List _fontInformationFavoriteList = _scanResultService.getFavoriteFontList();
+    List _fontInformationFavoriteList =
+        _scanResultService.getFavoriteFontList();
 
     return Scaffold(
       appBar: new AppBar(
@@ -24,21 +25,22 @@ class FavoriteListPage extends HookWidget {
       // scanResultがnullかどうか
       body: _fontInformationFavoriteList.length != 0
           ? ListView.builder(
-        padding: EdgeInsets.only(top: 1, bottom: 1),
-        itemBuilder: (BuildContext context, int index) {
-          print(index);
+              padding: EdgeInsets.only(top: 1, bottom: 1),
+              itemBuilder: (BuildContext context, int index) {
+                print(index);
 
-          if (index < _fontInformationFavoriteList.length) {
-            return _fontLogList(_fontInformationFavoriteList[index], context, index);
-          }
-        },
-      )
+                if (index < _fontInformationFavoriteList.length) {
+                  return _fontLogList(
+                      _fontInformationFavoriteList[index], context, index);
+                }
+              },
+            )
           : Container(),
     );
   }
 
-  Widget _fontLogList(FontInformation fontInformation, BuildContext context, int index) {
-
+  Widget _fontLogList(
+      FontInformation fontInformation, BuildContext context, int index) {
     print(fontInformation.fontName);
 
     return Padding(
@@ -51,15 +53,15 @@ class FavoriteListPage extends HookWidget {
         child: Container(
           decoration: BoxDecoration(
               border: const Border(
-                top: const BorderSide(
-                  color: const Color(0xffF2F2F2),
-                  width: 1,
-                ),
-                bottom: const BorderSide(
-                  color: const Color(0xffF2F2F2),
-                  width: 1,
-                ),
-              )),
+            top: const BorderSide(
+              color: const Color(0xffF2F2F2),
+              width: 1,
+            ),
+            bottom: const BorderSide(
+              color: const Color(0xffF2F2F2),
+              width: 1,
+            ),
+          )),
           height: 64,
           // color: Colors.amber[600],
           child: Row(
@@ -115,5 +117,4 @@ class FavoriteListPage extends HookWidget {
       ),
     );
   }
-
 }
