@@ -112,7 +112,7 @@ class FontInformationPage extends HookWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 32),
+            padding: const EdgeInsets.only(top: 16),
             child: Text(
               "字体",
               style: TextStyle(
