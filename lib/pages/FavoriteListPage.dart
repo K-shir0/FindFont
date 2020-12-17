@@ -30,38 +30,42 @@ class FavoriteListPage extends HookWidget {
                 print(index);
 
                 if (index < _fontInformationFavoriteList.length) {
-                  return _fontLogList(
-                      _fontInformationFavoriteList[index], context, index);
+                  return fontLogList(_fontInformationFavoriteList[index], _scanResultService);
                 }
               },
             )
           : Container(),
     );
   }
+}
 
-  Widget _fontLogList(
-      FontInformation fontInformation, BuildContext context, int index) {
-    print(fontInformation.fontName);
+class fontLogList extends HookWidget {
+  FontInformation fontInformation;
+  ScanResultApplicationService scanResultApplicationService;
 
+  fontLogList(this.fontInformation, this.scanResultApplicationService);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: GestureDetector(
         onTap: () {
-          print(index);
-          Navigator.of(context).pushNamed('/font_result/' + index.toString());
+          // print(index);
+          // Navigator.of(context).pushNamed('/font_result/' + index.toString());
         },
         child: Container(
           decoration: BoxDecoration(
               border: const Border(
-            top: const BorderSide(
-              color: const Color(0xffF2F2F2),
-              width: 1,
-            ),
-            bottom: const BorderSide(
-              color: const Color(0xffF2F2F2),
-              width: 1,
-            ),
-          )),
+                top: const BorderSide(
+                  color: const Color(0xffF2F2F2),
+                  width: 1,
+                ),
+                bottom: const BorderSide(
+                  color: const Color(0xffF2F2F2),
+                  width: 1,
+                ),
+              )),
           height: 64,
           // color: Colors.amber[600],
           child: Row(
@@ -124,4 +128,5 @@ class FavoriteListPage extends HookWidget {
       ),
     );
   }
+
 }
