@@ -63,6 +63,7 @@ class Router extends HookWidget {
         useProvider(_scanResultServiceProvider).scanResultApplicationService;
 
     return MaterialApp(
+      theme: ThemeData(primaryColor: Color(0xFF639CBF)),
       onGenerateRoute: (settings) {
         // Indexページ
         if (settings.name == '/') {
