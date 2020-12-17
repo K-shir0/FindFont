@@ -7,6 +7,7 @@ import 'package:find_font/components/scan_result/service/scan_result_application
 import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/CameraResultPage.dart';
 import 'package:find_font/pages/FavoriteListPage.dart';
+import 'package:find_font/pages/FontInformationPage.dart';
 import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
@@ -87,13 +88,23 @@ class Router extends HookWidget {
           return MaterialPageRoute(builder: (context) => CameraResultPage(_scanResultApplicationService ,int.parse(id)));
         }
 
+        // 設定
         if (settings.name == '/setting') {
           return MaterialPageRoute(builder: (context) => SettingPage());
         }
 
+        // お気に入り
         if (settings.name == '/favorite') {
           return MaterialPageRoute(builder: (context) => FavoriteListPage(_scanResultApplicationService));
         }
+
+        // フォント結果/:id
+        if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_information') {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(builder: (context) => FontInformationPage(_scanResultApplicationService, int.parse(id)));
+        }
+
+
 
 
         return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
