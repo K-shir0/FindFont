@@ -35,41 +35,47 @@ class CameraResultPage extends HookWidget {
             padding: const EdgeInsets.only(top: 32, bottom: 16),
             child: Text("一番一致したフォント", style: TextStyle(fontSize: 14)),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Checkbox(
-                onChanged: (bool value) {
-                  // 表示用のフラグを変更
-                  _checkboxFlg.value = !_checkboxFlg.value;
+          GestureDetector(
+            onTap: () {
+              print("一番一致したフォント");
+              Navigator.of(context).pushNamed('/font_information/' + topFontInformation.id.toString());
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Checkbox(
+                  onChanged: (bool value) {
+                    // 表示用のフラグを変更
+                    _checkboxFlg.value = !_checkboxFlg.value;
 
-                  // 永続化のフラグを変更
-                  _scanResultApplicationService.favorite(topFontInformation);
-                },
-                value: _checkboxFlg.value,
-              ),
-              Padding(
-                padding: EdgeInsets.only(),
-                child: Container(
-                    width: 50,
-                    child: Center(
-                      child: Text(
-                        'F',
-                        style: TextStyle(
-                            fontSize: 36,
-                            fontFamily:
-                                topFontInformation.fontFamily),
-                      ),
-                    )),
-              ),
-              Text(
-                topFontInformation.fontName +
-                    (topFontInformation.style != ''
-                        ? ('- ' + topFontInformation.style)
-                        : ''),
-                style: TextStyle(fontSize: 24),
-              )
-            ],
+                    // 永続化のフラグを変更
+                    _scanResultApplicationService.favorite(topFontInformation);
+                  },
+                  value: _checkboxFlg.value,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(),
+                  child: Container(
+                      width: 50,
+                      child: Center(
+                        child: Text(
+                          'F',
+                          style: TextStyle(
+                              fontSize: 36,
+                              fontFamily:
+                                  topFontInformation.fontFamily),
+                        ),
+                      )),
+                ),
+                Text(
+                  topFontInformation.fontName +
+                      (topFontInformation.style != ''
+                          ? ('- ' + topFontInformation.style)
+                          : ''),
+                  style: TextStyle(fontSize: 24),
+                )
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -124,39 +130,44 @@ class OtherFont extends HookWidget {
 
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Checkbox(
-            onChanged: (bool value) {
-              // 表示用のフラグを変更
-              checkBoxflg.value = !checkBoxflg.value;
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).pushNamed('/font_information/' + fontInformation.id.toString());
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Checkbox(
+              onChanged: (bool value) {
+                // 表示用のフラグを変更
+                checkBoxflg.value = !checkBoxflg.value;
 
-              // 永続化のフラグを変更
-              scanResultApplicationService.favorite(fontInformation);
-            },
-            value: checkBoxflg.value,
-          ),
-          Padding(
-            padding: EdgeInsets.only(),
-            child: Container(
-                width: 50,
-                child: Center(
-                  child: Text(
-                    'F',
-                    style: TextStyle(
-                        fontSize: 24, fontFamily: fontInformation.fontFamily),
-                  ),
-                )),
-          ),
-          Text(
-            fontInformation.fontName +
-                (fontInformation.style != ''
-                    ? (' - ' + fontInformation.style)
-                    : ''),
-            style: TextStyle(fontSize: 16),
-          )
-        ],
+                // 永続化のフラグを変更
+                scanResultApplicationService.favorite(fontInformation);
+              },
+              value: checkBoxflg.value,
+            ),
+            Padding(
+              padding: EdgeInsets.only(),
+              child: Container(
+                  width: 50,
+                  child: Center(
+                    child: Text(
+                      'F',
+                      style: TextStyle(
+                          fontSize: 24, fontFamily: fontInformation.fontFamily),
+                    ),
+                  )),
+            ),
+            Text(
+              fontInformation.fontName +
+                  (fontInformation.style != ''
+                      ? (' - ' + fontInformation.style)
+                      : ''),
+              style: TextStyle(fontSize: 16),
+            )
+          ],
+        ),
       ),
     );
   }
