@@ -97,6 +97,7 @@ class _FavoriteButtonItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           print("お気に入りボタンが押された");
+          Navigator.of(context).pushNamed('/favorite');
         },
         child: Container(
           decoration: BoxDecoration(

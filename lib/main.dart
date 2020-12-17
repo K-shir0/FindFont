@@ -6,6 +6,7 @@ import 'package:find_font/components/scan_result/service/scan_result_application
 import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/CameraResultPage.dart';
+import 'package:find_font/pages/FavoriteListPage.dart';
 import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
@@ -88,6 +89,10 @@ class Router extends HookWidget {
 
         if (settings.name == '/setting') {
           return MaterialPageRoute(builder: (context) => SettingPage());
+        }
+
+        if (settings.name == '/favorite') {
+          return MaterialPageRoute(builder: (context) => FavoriteListPage(_scanResultApplicationService));
         }
 
 

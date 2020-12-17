@@ -34,4 +34,8 @@ class ScanResultApplicationService {
 
     scanResultRepository.edit(fontInformation);
   }
+
+  List getFavoriteFontList() {
+    return scanResultRepository.getFavoriteFontList();
+  }
 }
