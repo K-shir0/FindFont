@@ -717,4 +717,8 @@ class ScanResultRepository {
 
     return _fontList;
   }
+
+  getFontInformationById(int id) {
+    return _fontInformationBox.getAt(id);
+  }
 }

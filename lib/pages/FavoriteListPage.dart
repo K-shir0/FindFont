@@ -54,7 +54,7 @@ class fontLogList extends HookWidget {
       child: GestureDetector(
         onTap: () {
           // print(index);
-          // Navigator.of(context).pushNamed('/font_result/' + index.toString());
+          Navigator.of(context).pushNamed('/font_information/' + fontInformation.id.toString());
         },
         child: Container(
           decoration: BoxDecoration(

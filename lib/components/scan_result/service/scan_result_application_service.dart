@@ -38,4 +38,8 @@ class ScanResultApplicationService {
   List getFavoriteFontList() {
     return scanResultRepository.getFavoriteFontList();
   }
+
+  getFontInformationById(int id) {
+    return scanResultRepository.getFontInformationById(id);
+  }
 }
