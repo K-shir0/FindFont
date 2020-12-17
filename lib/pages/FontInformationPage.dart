@@ -24,25 +24,31 @@ class FontInformationPage extends HookWidget {
         title: new Text('Navigator'),
         centerTitle: true,
       ),
-      body: new Container(
-        child: GridView.count(
-          crossAxisCount: 6,
-          padding: EdgeInsets.all(20),
-          children: alphabet.codeUnits.map((value) {
-            return Container(
-              alignment: Alignment.center,
-              // margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0xffF2F2F2)),
-              ),
-              child: Text(
-                "${String.fromCharCode(value)}",
-                style: TextStyle(
-                    fontSize: 24, fontFamily: fontInformation.fontFamily),
-              ),
-            );
-          }).toList(),
-        ),
+      body: Column(
+        children: [
+          Flexible(
+            child: GridView.count(
+              crossAxisCount: 6,
+              padding: EdgeInsets.all(20),
+              // shrinkWrap: true,
+              // physics: NeverScrollableScrollPhysics(),
+              children: alphabet.codeUnits.map((value) {
+                return Container(
+                  alignment: Alignment.center,
+                  // margin: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xffF2F2F2)),
+                  ),
+                  child: Text(
+                    "${String.fromCharCode(value)}",
+                    style: TextStyle(
+                        fontSize: 24, fontFamily: fontInformation.fontFamily),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
