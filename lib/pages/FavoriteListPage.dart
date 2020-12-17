@@ -47,6 +47,8 @@ class fontLogList extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    var checkBoxflg = useState(fontInformation.favorite);
+
     return Padding(
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: GestureDetector(
@@ -78,8 +80,14 @@ class fontLogList extends HookWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: Checkbox(
-                        onChanged: (bool value) {},
-                        value: true,
+                        onChanged: (bool value) {
+                          // 表示用のフラグを変更
+                          checkBoxflg.value = !checkBoxflg.value;
+
+                          // 永続化のフラグを変更
+                          scanResultApplicationService.favorite(fontInformation);
+                        },
+                        value: checkBoxflg.value,
                       ),
                     ),
                     Padding(
