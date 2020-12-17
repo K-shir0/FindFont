@@ -72,7 +72,14 @@ class FavoriteListPage extends HookWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 32, right: 12),
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Checkbox(
+                        onChanged: (bool value) {},
+                        value: true,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 12),
                       child: Container(
                           width: 50,
                           child: Center(
