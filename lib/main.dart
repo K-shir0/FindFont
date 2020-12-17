@@ -25,10 +25,8 @@ import 'components/scan_result/model/scan_result.dart';
 
 CameraDescription firstCamera;
 
-final _scanResultServiceProvider = ChangeNotifierProvider(
-        (ref) => new ScanResultApplicationServiceNotifier()
-);
-
+final _scanResultServiceProvider =
+    ChangeNotifierProvider((ref) => new ScanResultApplicationServiceNotifier());
 
 Future main() async {
   // 環境変数ファイルの読み込み
@@ -47,7 +45,6 @@ Future main() async {
     // 使用可能なカメラを取得する
     List cameras = await availableCameras();
     firstCamera = cameras.first;
-
   } on CameraException catch (e) {
     print("カメラを読み込めませんでした");
   }
@@ -62,7 +59,8 @@ Future main() async {
 class Router extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    var _scanResultApplicationService = useProvider(_scanResultServiceProvider).scanResultApplicationService;
+    var _scanResultApplicationService =
+        useProvider(_scanResultServiceProvider).scanResultApplicationService;
 
     return MaterialApp(
       onGenerateRoute: (settings) {
@@ -73,19 +71,25 @@ class Router extends HookWidget {
 
         // カメラページ
         if (settings.name == '/camera') {
-          return MaterialPageRoute(builder: (context) => CameraPage(firstCamera, _scanResultApplicationService));
+          return MaterialPageRoute(
+              builder: (context) =>
+                  CameraPage(firstCamera, _scanResultApplicationService));
         }
 
         // フォント履歴
         if (settings.name == '/font_log') {
-          return MaterialPageRoute(builder: (context) => FontLogPage(_scanResultApplicationService));
+          return MaterialPageRoute(
+              builder: (context) => FontLogPage(_scanResultApplicationService));
         }
 
         // フォント結果/:id
         var uri = Uri.parse(settings.name);
-        if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_result') {
+        if (uri.pathSegments.length == 2 &&
+            uri.pathSegments.first == 'font_result') {
           var id = uri.pathSegments[1];
-          return MaterialPageRoute(builder: (context) => CameraResultPage(_scanResultApplicationService ,int.parse(id)));
+          return MaterialPageRoute(
+              builder: (context) => CameraResultPage(
+                  _scanResultApplicationService, int.parse(id)));
         }
 
         // 設定
@@ -95,19 +99,27 @@ class Router extends HookWidget {
 
         // お気に入り
         if (settings.name == '/favorite') {
-          return MaterialPageRoute(builder: (context) => FavoriteListPage(_scanResultApplicationService));
+          return MaterialPageRoute(
+              builder: (context) =>
+                  FavoriteListPage(_scanResultApplicationService));
         }
 
         // フォント結果/:id
-        if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'font_information') {
+        if (uri.pathSegments.length == 2 &&
+            uri.pathSegments.first == 'font_information') {
           var id = uri.pathSegments[1];
-          return MaterialPageRoute(builder: (context) => FontInformationPage(_scanResultApplicationService, int.parse(id)));
+          return MaterialPageRoute(
+            builder: (context) => FontInformationPage(
+              _scanResultApplicationService,
+              int.parse(id),
+            ),
+          );
         }
 
-
-
-
-        return MaterialPageRoute(builder: (context) => MyHomePage(title: "Unknown Page",));
+        return MaterialPageRoute(
+            builder: (context) => MyHomePage(
+                  title: "Unknown Page",
+                ));
       },
     );
   }
@@ -121,7 +133,8 @@ class ScanResultApplicationServiceNotifier extends ChangeNotifier {
 
   ScanResultApplicationServiceNotifier() {
     print("登録");
-    _scanResultApplicationService = new ScanResultApplicationServiceFactory().create();
+    _scanResultApplicationService =
+        new ScanResultApplicationServiceFactory().create();
   }
 }
 
