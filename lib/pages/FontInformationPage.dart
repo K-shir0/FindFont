@@ -40,13 +40,32 @@ class FontInformationPage extends HookWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Text(
-            fontInformation.fontName +
-                (fontInformation.style != ''
-                    ? ('- ' + fontInformation.style)
-                    : ''),
-            style: TextStyle(fontSize: 24),
-            textAlign: TextAlign.center,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(),
+                child: Container(
+                    width: 50,
+                    child: Center(
+                      child: Text(
+                        'F',
+                        style: TextStyle(
+                            fontSize: 36,
+                            fontFamily:
+                            fontInformation.fontFamily),
+                      ),
+                    )),
+              ),
+              Text(
+                fontInformation.fontName +
+                    (fontInformation.style != ''
+                        ? ('- ' + fontInformation.style)
+                        : ''),
+                style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32, bottom: 16),
