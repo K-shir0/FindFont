@@ -71,7 +71,7 @@ class FontLogPage extends HookWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
-                flex: 9,
+                flex: 10,
                 child: Row(
                   children: [
                     Padding(
@@ -108,8 +108,9 @@ class FontLogPage extends HookWidget {
                 ),
               ),
               Flexible(
-                flex: 3,
+                flex: 4,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       formatter.format(scanResult.dateTime),
