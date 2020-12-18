@@ -53,7 +53,7 @@ class _HelpButtonItem extends StatelessWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 32, right: 12),
+                      padding: EdgeInsets.only(left: 16, right: 12),
                       child: Container(
                         width: 50,
                         child: Center(
@@ -121,7 +121,7 @@ class _FavoriteButtonItem extends StatelessWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 32, right: 12),
+                      padding: EdgeInsets.only(left: 16, right: 12),
                       child: Container(
                         width: 50,
                         child: Center(

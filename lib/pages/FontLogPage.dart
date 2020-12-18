@@ -31,7 +31,7 @@ class FontLogPage extends HookWidget {
               itemBuilder: (BuildContext context, int index) {
 
                 if (index < scanResult.length) {
-                  var scanLog = scanResult[index];
+                  var scanLog = scanResult[(scanResult.length - 1) - index];
                   return _fontLogList(scanLog, context, index);
                 }
               },
@@ -75,7 +75,7 @@ class FontLogPage extends HookWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 32, right: 12),
+                      padding: EdgeInsets.only(left: 16, right: 12),
                       child: Container(
                           width: 50,
                           child: Center(

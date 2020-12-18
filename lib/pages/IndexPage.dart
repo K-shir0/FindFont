@@ -35,7 +35,7 @@ class IndexPage extends StatelessWidget {
                             child: TopButton(
                               width: topIconMainSize,
                               height: topIconMainSize,
-                              svgPath: 'assets/svg/icon_camera.svg',
+                              svgPath: 'assets/svg/icon_camera3.svg',
                             ),
                           ),
                         ),
