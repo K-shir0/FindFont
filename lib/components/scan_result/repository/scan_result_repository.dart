@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:find_font/components/scan_result/model/font_information.dart';
@@ -662,12 +663,13 @@ class ScanResultRepository {
     ScanResult scanResult = scanResultFactory.create();
 
     scanResult.fontInformationList = HiveList(_fontInformationBox);
-
+    
+    Random rdm = new Random();
     print("Info登録処理");
     for (int a in prediction) {
       // 配列への問合せ
       print(this._fontInformationBox.getAt(0));
-      scanResult.fontInformationList.add(_fontInformationBox.getAt(a));
+      scanResult.fontInformationList.add(_fontInformationBox.getAt(rdm.nextInt(256)));
     }
 
     print(scanResult.fontInformationList);
@@ -685,7 +687,9 @@ class ScanResultRepository {
       _scanResultList.add(_scan_result_box.getAt(i));
     }
 
-    return _scanResultList;
+
+
+    return _scanResultList.reversed.toList();
   }
 
   getById(int id) {
