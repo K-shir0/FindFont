@@ -11,6 +11,7 @@ import 'package:find_font/components/scan_result/service/scan_result_application
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:state_notifier/state_notifier.dart';
@@ -97,6 +98,8 @@ class CameraPageState extends State<CameraPage> {
 
   @override
   Widget build(BuildContext context) {
+    final picker = ImagePicker();
+
     return Scaffold(
       appBar: AppBar(title: Text('カメラ'), centerTitle: true),
       // カメラウィジェット
@@ -132,7 +135,27 @@ class CameraPageState extends State<CameraPage> {
                         height: topIconSubButtonSize,
                         child: FloatingActionButton(
                           heroTag: 'Garally',
-                          onPressed: () => {},
+                          onPressed: () async {
+                            print("写真選択ボタンが押された");
+
+                            // ファイルを選択
+                            picker.getImage(source: ImageSource.gallery).then((pickedFile) {
+                              print(pickedFile.path);
+
+                              ScanResultRegisterCommand command =
+                              new ScanResultRegisterCommand(pickedFile.path);
+
+                              // 登録処理
+                              widget.scanResultApplicationService.register(command).then((value)  {
+                                var length = widget.scanResultApplicationService.index().length - 1;
+
+                                Navigator.of(context).pushNamed('/font_result/' + length.toString());
+                              });
+
+
+
+                            });
+                          },
                           child: TopButton(
                             width: topIconSubButtonSize,
                             height: topIconSubButtonSize,
