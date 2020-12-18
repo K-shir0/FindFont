@@ -29,7 +29,6 @@ class FontLogPage extends HookWidget {
           ? ListView.builder(
               padding: EdgeInsets.only(top: 1, bottom: 1),
               itemBuilder: (BuildContext context, int index) {
-                print(index);
 
                 if (index < scanResult.length) {
                   var scanLog = scanResult[index];
@@ -95,12 +94,15 @@ class FontLogPage extends HookWidget {
                         style: TextStyle(fontSize: 14),
                       ),
                     ),
-                    Text(
-                      fontInformation.style != ""
-                          ? '- ' + fontInformation.style
-                          : '',
-                      style: TextStyle(fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
+                    Expanded(
+                      child: Text(
+                        fontInformation.style != ""
+                            ? '- ' + fontInformation.style
+                            : '',
+                        style: TextStyle(fontSize: 12),
+                        softWrap: false,
+                        overflow: TextOverflow.fade,
+                      ),
                     ),
                   ],
                 ),

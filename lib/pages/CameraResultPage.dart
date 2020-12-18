@@ -67,12 +67,16 @@ class CameraResultPage extends HookWidget {
                         ),
                       )),
                 ),
-                Text(
-                  topFontInformation.fontName +
-                      (topFontInformation.style != ''
-                          ? ('- ' + topFontInformation.style)
-                          : ''),
-                  style: TextStyle(fontSize: 24),
+                Expanded(
+                  child: Text(
+                    topFontInformation.fontName +
+                        (topFontInformation.style != ''
+                            ? ('- ' + topFontInformation.style)
+                            : ''),
+                    style: TextStyle(fontSize: 24),
+                    softWrap: false,
+                    overflow: TextOverflow.fade,
+                  ),
                 )
               ],
             ),
@@ -90,7 +94,7 @@ class CameraResultPage extends HookWidget {
             child: Row(
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Container(),
                 ),
                 Expanded(
@@ -159,12 +163,16 @@ class OtherFont extends HookWidget {
                     ),
                   )),
             ),
-            Text(
-              fontInformation.fontName +
-                  (fontInformation.style != ''
-                      ? (' - ' + fontInformation.style)
-                      : ''),
-              style: TextStyle(fontSize: 16),
+            Expanded(
+              child: Text(
+                fontInformation.fontName +
+                    (fontInformation.style != ''
+                        ? (' - ' + fontInformation.style)
+                        : ''),
+                style: TextStyle(fontSize: 16),
+                softWrap: false,
+                overflow: TextOverflow.fade,
+              ),
             )
           ],
         ),

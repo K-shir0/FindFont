@@ -110,12 +110,15 @@ class fontLogList extends HookWidget {
                         style: TextStyle(fontSize: 14),
                       ),
                     ),
-                    Text(
-                      fontInformation.style != ""
-                          ? '- ' + fontInformation.style
-                          : '',
-                      style: TextStyle(fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
+                    Expanded(
+                      child: Text(
+                        fontInformation.style != ""
+                            ? '- ' + fontInformation.style
+                            : '',
+                        style: TextStyle(fontSize: 12),
+                        softWrap: false,
+                        overflow: TextOverflow.fade,
+                      ),
                     ),
                   ],
                 ),

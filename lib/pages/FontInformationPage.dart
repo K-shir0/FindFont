@@ -57,13 +57,17 @@ class FontInformationPage extends HookWidget {
                       ),
                     )),
               ),
-              Text(
-                fontInformation.fontName +
-                    (fontInformation.style != ''
-                        ? ('- ' + fontInformation.style)
-                        : ''),
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
+              Expanded(
+                child: Text(
+                  fontInformation.fontName +
+                      (fontInformation.style != ''
+                          ? ('- ' + fontInformation.style)
+                          : ''),
+                  style: TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                  softWrap: false,
+                  overflow: TextOverflow.fade,
+                ),
               ),
             ],
           ),
@@ -119,9 +123,13 @@ class FontInformationPage extends HookWidget {
                     flex: 11,
                     child: Row(
                       children: [
-                        Text(
-                          str.value,
-                          style: TextStyle(fontSize: 18, fontFamily: fontInformation.fontFamily),
+                        Expanded(
+                          child: Text(
+                            str.value,
+                            style: TextStyle(fontSize: 18, fontFamily: fontInformation.fontFamily),
+                            softWrap: false,
+                            overflow: TextOverflow.fade,
+                          ),
                         ),
                       ],
                     ),
