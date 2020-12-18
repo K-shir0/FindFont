@@ -1,10 +1,10 @@
 import 'package:find_font/components/scan_result/model/font_information.dart';
-import 'package:find_font/components/scan_result/repository/scan_result_repository.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:like_button/like_button.dart';
 
 class FavoriteListPage extends HookWidget {
   final ScanResultApplicationService _scanResultService;
@@ -79,15 +79,26 @@ class fontLogList extends HookWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
-                      child: Checkbox(
-                        onChanged: (bool value) {
+                      child: LikeButton(
+                        onTap: (bool isLiked) async {
                           // 表示用のフラグを変更
                           checkBoxflg.value = !checkBoxflg.value;
 
                           // 永続化のフラグを変更
-                          scanResultApplicationService.favorite(fontInformation);
+                          scanResultApplicationService
+                              .favorite(fontInformation);
+
+                          return checkBoxflg.value;
                         },
-                        value: checkBoxflg.value,
+                        likeBuilder: (bool isLiked) {
+                          return Icon(
+                            checkBoxflg.value
+                                ? Icons.star_rounded
+                                : Icons.star_outline_rounded,
+                            color: checkBoxflg.value ? Colors.amber : Colors.grey,
+                            size: 24,
+                          );
+                        },
                       ),
                     ),
                     Padding(

@@ -3,8 +3,6 @@ import 'package:find_font/components/scan_result/service/scan_result_application
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:path/path.dart';
 
 class FontInformationPage extends HookWidget {
   final ScanResultApplicationService scanResultApplicationService;
@@ -57,7 +55,7 @@ class FontInformationPage extends HookWidget {
                       ),
                     )),
               ),
-              Expanded(
+              Flexible(
                 child: Text(
                   fontInformation.fontName +
                       (fontInformation.style != ''

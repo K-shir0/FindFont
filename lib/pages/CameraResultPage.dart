@@ -4,9 +4,7 @@ import 'package:find_font/components/scan_result/service/scan_result_application
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/all.dart';
-
-import '../main.dart';
+import 'package:like_button/like_button.dart';
 
 class CameraResultPage extends HookWidget {
   final int id;
@@ -20,7 +18,8 @@ class CameraResultPage extends HookWidget {
     ScanResult scanResult = _scanResultApplicationService.getById(id);
 
     final _checkboxFlg = useState(false);
-    final FontInformation topFontInformation = scanResult.fontInformationList[0];
+    final FontInformation topFontInformation =
+        scanResult.fontInformationList[0];
 
     _checkboxFlg.value = topFontInformation.favorite;
 
@@ -38,20 +37,35 @@ class CameraResultPage extends HookWidget {
           GestureDetector(
             onTap: () {
               print("一番一致したフォント");
-              Navigator.of(context).pushNamed('/font_information/' + topFontInformation.id.toString());
+              Navigator.of(context).pushNamed(
+                  '/font_information/' + topFontInformation.id.toString());
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Checkbox(
-                  onChanged: (bool value) {
-                    // 表示用のフラグを変更
-                    _checkboxFlg.value = !_checkboxFlg.value;
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: LikeButton(
+                    onTap: (bool isLiked) async {
+                      // 表示用のフラグを変更
+                      _checkboxFlg.value = !_checkboxFlg.value;
 
-                    // 永続化のフラグを変更
-                    _scanResultApplicationService.favorite(topFontInformation);
-                  },
-                  value: _checkboxFlg.value,
+                      // 永続化のフラグを変更
+                      _scanResultApplicationService
+                          .favorite(topFontInformation);
+
+                      return _checkboxFlg.value;
+                    },
+                    likeBuilder: (bool isLiked) {
+                      return Icon(
+                        _checkboxFlg.value
+                            ? Icons.star_rounded
+                            : Icons.star_outline_rounded,
+                        color: _checkboxFlg.value ? Colors.amber : Colors.grey,
+                        size: 28,
+                      );
+                    },
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(),
@@ -62,16 +76,15 @@ class CameraResultPage extends HookWidget {
                           'F',
                           style: TextStyle(
                               fontSize: 36,
-                              fontFamily:
-                                  topFontInformation.fontFamily),
+                              fontFamily: topFontInformation.fontFamily),
                         ),
                       )),
                 ),
-                Expanded(
+                Flexible(
                   child: Text(
                     topFontInformation.fontName +
                         (topFontInformation.style != ''
-                            ? ('- ' + topFontInformation.style)
+                            ? (' - ' + topFontInformation.style)
                             : ''),
                     style: TextStyle(fontSize: 24),
                     softWrap: false,
@@ -100,11 +113,16 @@ class CameraResultPage extends HookWidget {
                 Expanded(
                   flex: 10,
                   child: Column(
+
                     children: [
-                      OtherFont(scanResult.fontInformationList[1], _scanResultApplicationService),
-                      OtherFont(scanResult.fontInformationList[2], _scanResultApplicationService),
-                      OtherFont(scanResult.fontInformationList[3], _scanResultApplicationService),
-                      OtherFont(scanResult.fontInformationList[4], _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[1],
+                          _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[2],
+                          _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[3],
+                          _scanResultApplicationService),
+                      OtherFont(scanResult.fontInformationList[4],
+                          _scanResultApplicationService),
                     ],
                   ),
                 ),
@@ -133,23 +151,35 @@ class OtherFont extends HookWidget {
     var checkBoxflg = useState(fontInformation.favorite);
 
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(16.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushNamed('/font_information/' + fontInformation.id.toString());
+          Navigator.of(context)
+              .pushNamed('/font_information/' + fontInformation.id.toString());
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Checkbox(
-              onChanged: (bool value) {
+            LikeButton(
+              onTap: (bool isLiked) async {
                 // 表示用のフラグを変更
                 checkBoxflg.value = !checkBoxflg.value;
 
                 // 永続化のフラグを変更
-                scanResultApplicationService.favorite(fontInformation);
+                scanResultApplicationService
+                    .favorite(fontInformation);
+
+                return checkBoxflg.value;
               },
-              value: checkBoxflg.value,
+              likeBuilder: (bool isLiked) {
+                return Icon(
+                  checkBoxflg.value
+                      ? Icons.star_rounded
+                      : Icons.star_outline_rounded,
+                  color: checkBoxflg.value ? Colors.amber : Colors.grey,
+                  size: 24,
+                );
+              },
             ),
             Padding(
               padding: EdgeInsets.only(),
