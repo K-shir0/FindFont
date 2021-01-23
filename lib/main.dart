@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:find_font/components/scan_result/model/font_information.dart';
 import 'package:find_font/components/scan_result/model/scan_result.dart';
-import 'package:find_font/components/scan_result/repository/scan_result_repository.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:find_font/pages/CameraPage.dart';
@@ -14,13 +13,12 @@ import 'package:find_font/pages/MyHomePage.dart';
 import 'package:find_font/pages/SettingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 
-import 'components/scan_result/model/scan_result.dart';
 import 'components/scan_result/model/scan_result.dart';
 
 CameraDescription firstCamera;
@@ -63,6 +61,7 @@ class Router extends HookWidget {
         useProvider(_scanResultServiceProvider).scanResultApplicationService;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Color(0xFF639CBF)),
       onGenerateRoute: (settings) {
         // Indexページ
