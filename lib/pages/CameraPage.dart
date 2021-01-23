@@ -1,24 +1,15 @@
-import 'dart:developer';
-import 'dart:io';
-import 'dart:math';
 
 import 'package:camera/camera.dart';
 import 'package:find_font/components/_top_button.dart';
-import 'package:find_font/components/scan_result/repository/scan_result_repository.dart';
 import 'package:find_font/components/scan_result/scan_result_register_command.dart';
 import 'package:find_font/components/scan_result/service/scan_result_application_service.dart';
-import 'package:find_font/components/scan_result/service/scan_result_application_service_factory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/all.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:state_notifier/state_notifier.dart';
 
-import '../main.dart';
-
-class CameraPage extends StatefulWidget {
+class CameraPage extends StatefulHookWidget {
   final double topIconMainSize = 78.0;
   final double topIconSubButtonSize = 44.0;
 
@@ -79,6 +70,7 @@ class CameraPageState extends State<CameraPage> {
 
   final double topIconMainSize = 78.0;
   final double topIconSubButtonSize = 44.0;
+  var isLoading = false;
 
   @override
   void initState() {
@@ -103,119 +95,161 @@ class CameraPageState extends State<CameraPage> {
     return Scaffold(
       appBar: AppBar(title: Text('カメラ'), centerTitle: true),
       // カメラウィジェット
-      body: new Container(
-          color: Color(0xFF639CBF),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Cameraの画面部
-              Expanded(
-                child: FutureBuilder<void>(
-                  future: _initializeControllerFuture,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      // If the Future is complete, display the preview.
-                      return CameraPreview(_controller);
-                    } else {
-                      // Otherwise, display a loading indicator.
-                      return Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    // ライブラリから選択
-                    Container(
-                        width: topIconSubButtonSize,
-                        height: topIconSubButtonSize,
-                        child: FloatingActionButton(
-                          heroTag: 'Garally',
-                          onPressed: () async {
-                            print("写真選択ボタンが押された");
-
-                            // ファイルを選択
-                            picker.getImage(source: ImageSource.gallery).then((pickedFile) {
-                              print(pickedFile.path);
-
-                              ScanResultRegisterCommand command =
-                              new ScanResultRegisterCommand(pickedFile.path);
-
-                              // 登録処理
-                              widget.scanResultApplicationService.register(command).then((value)  {
-                                var length = widget.scanResultApplicationService.index().length - 1;
-
-                                Navigator.of(context).pushNamed('/font_result/' + length.toString());
-                              });
-
-
-
-                            });
-                          },
-                          child: TopButton(
+      body: Stack(
+        children: [
+          new Container(
+              color: Color(0xFF639CBF),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Cameraの画面部
+                  Expanded(
+                    child: FutureBuilder<void>(
+                      future: _initializeControllerFuture,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          // If the Future is complete, display the preview.
+                          return CameraPreview(_controller);
+                        } else {
+                          // Otherwise, display a loading indicator.
+                          return Center(child: CircularProgressIndicator());
+                        }
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        // ライブラリから選択
+                        Container(
                             width: topIconSubButtonSize,
                             height: topIconSubButtonSize,
-                            svgPath: 'assets/svg/icon_garally.svg',
-                          ),
-                        )),
-                    // 撮影ボタン
-                    Padding(
-                        padding: EdgeInsets.only(left: 16, right: 16),
-                        child: Container(
-                            width: topIconMainSize,
-                            height: topIconMainSize,
                             child: FloatingActionButton(
-                              heroTag: 'TakeCapture',
+                              heroTag: 'Garally',
                               onPressed: () async {
-                                try {
-                                  // Ensure that the camera is initialized.
-                                  await _initializeControllerFuture;
+                                print("写真選択ボタンが押された");
+                                setState(() {
+                                  isLoading = true;
+                                });
 
-                                  // Construct the path where the image should be saved using the
-                                  // pattern package.
+                                // ファイルを選択
+                                picker
+                                    .getImage(source: ImageSource.gallery)
+                                    .then((pickedFile) {
+                                  print(pickedFile.path);
 
-                                  final path = join(
-                                    // Store the picture in the temp directory.
-                                    // Find the temp directory using the `path_provider` plugin.
-                                    (await getTemporaryDirectory()).path,
-                                    '${DateTime.now()}.png',
-                                  );
-
-                                  // Attempt to take a picture and log where it's been saved.
-                                  await _controller.takePicture(path);
-
-                                  print('処理開始');
                                   ScanResultRegisterCommand command =
-                                  new ScanResultRegisterCommand(path);
+                                  new ScanResultRegisterCommand(
+                                      pickedFile.path);
 
-                                  if (await widget.scanResultApplicationService.register(command)) {
-                                    var length = widget.scanResultApplicationService.index().length - 1;
+                                  // 登録処理
+                                  widget.scanResultApplicationService
+                                      .register(command)
+                                    ..then((value) {
+                                      var length = widget
+                                          .scanResultApplicationService
+                                          .index()
+                                          .length -
+                                          1;
 
-                                    Navigator.of(context).pushNamed('/font_result/' + length.toString());
-                                  }
-                                } catch (e) {
-                                  // If an error occurs, log the error to the console.
-                                  print(e);
-                                }
+                                      Navigator.of(context).pushNamed(
+                                          '/font_result/' + length.toString());
+                                    }).whenComplete(() =>
+                                        setState(() {
+                                          isLoading = false;
+                                        }));
+                                });
                               },
                               child: TopButton(
+                                width: topIconSubButtonSize,
+                                height: topIconSubButtonSize,
+                                svgPath: 'assets/svg/icon_garally.svg',
+                              ),
+                            )),
+                        // 撮影ボタン
+                        Padding(
+                            padding: EdgeInsets.only(left: 16, right: 16),
+                            child: Container(
                                 width: topIconMainSize,
                                 height: topIconMainSize,
-                                svgPath: 'assets/svg/icon_camera.svg',
-                              ),
-                            ))),
-                    Container(
-                      width: topIconSubButtonSize,
+                                child: FloatingActionButton(
+                                  heroTag: 'TakeCapture',
+                                  onPressed: () async {
+                                    setState(() {
+                                      isLoading = true;
+                                    });
+
+                                    try {
+                                      // Ensure that the camera is initialized.
+                                      await _initializeControllerFuture;
+
+                                      // Construct the path where the image should be saved using the
+                                      // pattern package.
+
+                                      final path = join(
+                                        // Store the picture in the temp directory.
+                                        // Find the temp directory using the `path_provider` plugin.
+                                        (await getTemporaryDirectory()).path,
+                                        '${DateTime.now()}.png',
+                                      );
+
+                                      // Attempt to take a picture and log where it's been saved.
+                                      await _controller.takePicture(path);
+
+                                      print('処理開始');
+                                      ScanResultRegisterCommand command =
+                                      new ScanResultRegisterCommand(path);
+
+                                      if (await widget
+                                          .scanResultApplicationService
+                                          .register(command)) {
+                                        var length = widget
+                                            .scanResultApplicationService
+                                            .index()
+                                            .length -
+                                            1;
+
+                                        Navigator.of(context).pushNamed(
+                                            '/font_result/' +
+                                                length.toString());
+                                      }
+                                    } catch (e) {
+                                      // If an error occurs, log the error to the console.
+                                      print(e);
+                                    }
+
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                  },
+                                  child: TopButton(
+                                    width: topIconMainSize,
+                                    height: topIconMainSize,
+                                    svgPath: 'assets/svg/icon_camera.svg',
+                                  ),
+                                ))),
+                        Container(
+                          width: topIconSubButtonSize,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ],
-          )),
+                  ),
+                ],
+              )),
+          isLoading
+              ? Container(
+            decoration: new BoxDecoration(
+              color: Color.fromRGBO(0, 0, 0, 0.6),
+            ),
+            alignment: Alignment.center,
+            // child: CircularProgressIndicator(),
+          )
+              : Container(child: Text("test"),)
+        ],
+      ),
     );
   }
 }
