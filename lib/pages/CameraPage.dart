@@ -245,7 +245,7 @@ class CameraPageState extends State<CameraPage> {
               color: Color.fromRGBO(0, 0, 0, 0.6),
             ),
             alignment: Alignment.center,
-            // child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(),
           )
               : Container(child: Text("test"),)
         ],
