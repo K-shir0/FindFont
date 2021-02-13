@@ -123,10 +123,12 @@ class CameraResultPage extends HookWidget {
                       OtherFont(scanResult.fontInformationList[4],
                           _scanResultApplicationService),
                       Padding(
-                        padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+                        padding:
+                            const EdgeInsets.only(top: 16, left: 8, right: 8),
                         child: RaisedButton(
                           color: Color(0xFF639CBF),
-                          onPressed: () => {},
+                          onPressed: () =>
+                              Navigator.popUntil(context, (route) => route.isFirst),
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: Row(
@@ -146,7 +148,8 @@ class CameraResultPage extends HookWidget {
                                   flex: 10,
                                   child: Text(
                                     "ホームに戻る",
-                                    style: TextStyle(fontSize: 16, color: Colors.white),
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.white),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),

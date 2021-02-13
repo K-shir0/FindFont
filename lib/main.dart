@@ -66,7 +66,8 @@ class Router extends HookWidget {
       onGenerateRoute: (settings) {
         // Indexページ
         if (settings.name == '/') {
-          return MaterialPageRoute(builder: (context) => IndexPage());
+          return MaterialPageRoute(
+              builder: (context) => IndexPage());
         }
 
         // カメラページ
