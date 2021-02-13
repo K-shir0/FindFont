@@ -113,7 +113,6 @@ class CameraResultPage extends HookWidget {
                 Expanded(
                   flex: 10,
                   child: Column(
-
                     children: [
                       OtherFont(scanResult.fontInformationList[1],
                           _scanResultApplicationService),
@@ -123,6 +122,39 @@ class CameraResultPage extends HookWidget {
                           _scanResultApplicationService),
                       OtherFont(scanResult.fontInformationList[4],
                           _scanResultApplicationService),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+                        child: RaisedButton(
+                          color: Color(0xFF639CBF),
+                          onPressed: () => {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 16, right: 16),
+                                      child: Icon(
+                                        Icons.keyboard_arrow_left_rounded,
+                                        size: 32,
+                                        color: Colors.white,
+                                      ),
+                                    )),
+                                Expanded(
+                                  flex: 10,
+                                  child: Text(
+                                    "ホームに戻る",
+                                    style: TextStyle(fontSize: 16, color: Colors.white),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -166,8 +198,7 @@ class OtherFont extends HookWidget {
                 checkBoxflg.value = !checkBoxflg.value;
 
                 // 永続化のフラグを変更
-                scanResultApplicationService
-                    .favorite(fontInformation);
+                scanResultApplicationService.favorite(fontInformation);
 
                 return checkBoxflg.value;
               },
