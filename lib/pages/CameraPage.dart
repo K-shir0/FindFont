@@ -247,7 +247,7 @@ class CameraPageState extends State<CameraPage> {
             alignment: Alignment.center,
             child: CircularProgressIndicator(),
           )
-              : Container(child: Text("test"),)
+              : Container()
         ],
       ),
     );
