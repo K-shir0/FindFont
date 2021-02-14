@@ -111,7 +111,7 @@ class IndexPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            '設定',
+                            '設定・使い方',
                             style: TextStyle(
                               fontFamily: 'YuGothic',
                               fontSize: 16,
