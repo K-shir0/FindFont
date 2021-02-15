@@ -49,14 +49,12 @@ class _UsageButtonItem extends HookWidget {
   final Function onTapHandler;
 
   _UsageButtonItem(
-      {@required this.title,
-      @required this.svgPicture,
-      @required this.onTapHandler});
+      {@required this.title, this.svgPicture, @required this.onTapHandler});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 12, bottom: 12),
+      padding: EdgeInsets.only(top: 8, bottom: 8),
       child: GestureDetector(
         onTap: onTapHandler,
         child: Container(
@@ -81,13 +79,20 @@ class _UsageButtonItem extends HookWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 16, right: 12),
-                      child: Container(
-                        width: 50,
-                        child: Center(child: svgPicture),
+                      padding: EdgeInsets.only(left: 40, right: 12),
+                      child: Row(
+                        children: [
+                          if (svgPicture != null)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 24.0),
+                              child: svgPicture,
+                            ),
+                          Padding(
+                              padding: EdgeInsets.only(right: 10),
+                              child: title),
+                        ],
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(right: 10), child: title),
                   ],
                 ),
               ),
