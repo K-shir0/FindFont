@@ -79,7 +79,7 @@ class _UsageButtonItem extends HookWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 40, right: 12),
+                      padding: EdgeInsets.only(left: 40),
                       child: Row(
                         children: [
                           if (svgPicture != null)
@@ -101,7 +101,7 @@ class _UsageButtonItem extends HookWidget {
                 child: Row(
                   children: [
                     Padding(
-                        padding: EdgeInsets.only(right: 8, left: 16),
+                        padding: EdgeInsets.only(right: 8, left: 8),
                         child: SvgPicture.asset('assets/svg/next.svg'))
                   ],
                 ),
