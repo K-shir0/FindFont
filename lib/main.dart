@@ -154,7 +154,7 @@ class Router extends HookWidget {
           if (uri.pathSegments[1] == 'font_download')
             return MaterialPageRoute(
               builder: (context) => Information(
-                title: "和文フォントをスキャンしたい",
+                title: "フォントをダウンロードしたい",
                 contents:
                     """Googleフォントで検索すると、専用サイトに行くことができます。そこから左上にある”search”から今回でた結果の文字を入力いただくと、同じ文字がでてきます。そこをタップして頂き、右上にある”Download family”を押していただくとダウンロード完了です。""",
                 image: Image.asset('assets/images/font_download.png'),
