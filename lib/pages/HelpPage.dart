@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'SettingPage.dart';
 
- class HelpPage extends HookWidget {
-  final textStyle = TextStyle(fontSize: 14);
+class HelpPage extends HookWidget {
+  final textStyle = TextStyle(fontSize: 14,color: Color(0xFF639CBF), fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text('設定'),
+        title: new Text('ヘルプ'),
         centerTitle: true,
       ),
       body: ListView(
@@ -20,32 +19,26 @@ import 'SettingPage.dart';
         children: [
           UsageButtonItem(
             title: Text(
-              "使い方",
+              "うまくスキャンできない",
               style: textStyle,
             ),
-            svgPicture: SvgPicture.asset('assets/svg/syoshinsya.svg'),
-            onTapHandler: () => Navigator.pushNamed(context, '/usage'),
+            onTapHandler: () =>
+                Navigator.pushNamed(context, '/help/umaku_skyan'),
           ),
           UsageButtonItem(
             title: Text(
-              "ヘルプ",
+              "和文フォントをスキャンしたい",
               style: textStyle,
             ),
-            svgPicture: SvgPicture.asset('assets/svg/question.svg'),
-            onTapHandler: () {
-              print("ヘルプボタンが押された");
-            },
+            onTapHandler: () => Navigator.pushNamed(context, '/help/wabun'),
           ),
           UsageButtonItem(
             title: Text(
-              "お気に入り",
+              "フォントをダウンロードしたい",
               style: textStyle,
             ),
-            svgPicture: SvgPicture.asset('assets/svg/star.svg'),
-            onTapHandler: () {
-              print("お気に入りボタンが押された");
-              Navigator.of(context).pushNamed('/favorite');
-            },
+            onTapHandler: () =>
+                Navigator.pushNamed(context, '/help/font_download'),
           ),
         ],
       ),
