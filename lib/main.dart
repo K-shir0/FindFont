@@ -11,6 +11,7 @@ import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
 import 'package:find_font/pages/SettingPage.dart';
+import 'package:find_font/pages/UsagePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -66,8 +67,7 @@ class Router extends HookWidget {
       onGenerateRoute: (settings) {
         // Indexページ
         if (settings.name == '/') {
-          return MaterialPageRoute(
-              builder: (context) => IndexPage());
+          return MaterialPageRoute(builder: (context) => IndexPage());
         }
 
         // カメラページ
@@ -114,6 +114,12 @@ class Router extends HookWidget {
               _scanResultApplicationService,
               int.parse(id),
             ),
+          );
+        }
+
+        if (uri.pathSegments.length == 1 && uri.pathSegments.first == 'usage') {
+          return MaterialPageRoute(
+            builder: (context) => UsagePage(),
           );
         }
 
