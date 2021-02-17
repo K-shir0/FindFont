@@ -8,6 +8,7 @@ import 'package:find_font/pages/CameraResultPage.dart';
 import 'package:find_font/pages/FavoriteListPage.dart';
 import 'package:find_font/pages/FontInformationPage.dart';
 import 'package:find_font/pages/FontLogPage.dart';
+import 'package:find_font/pages/HelpPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
 import 'package:find_font/pages/SettingPage.dart';
@@ -120,6 +121,12 @@ class Router extends HookWidget {
         if (uri.pathSegments.length == 1 && uri.pathSegments.first == 'usage') {
           return MaterialPageRoute(
             builder: (context) => UsagePage(),
+          );
+        }
+
+        if (uri.pathSegments.length == 1 && uri.pathSegments.first == 'help') {
+          return MaterialPageRoute(
+            builder: (context) => HelpPage(),
           );
         }
 

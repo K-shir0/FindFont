@@ -30,9 +30,7 @@ class SettingPage extends HookWidget {
               style: textStyle,
             ),
             svgPicture: SvgPicture.asset('assets/svg/question.svg'),
-            onTapHandler: () {
-              print("ヘルプボタンが押された");
-            },
+            onTapHandler: () => Navigator.pushNamed(context, '/help'),
           ),
           UsageButtonItem(
             title: Text(
