@@ -8,6 +8,7 @@ import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/CameraResultPage.dart';
 import 'package:find_font/pages/FavoriteListPage.dart';
 import 'package:find_font/pages/FontInformationPage.dart';
+import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/HelpPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
@@ -160,6 +161,13 @@ class Router extends HookWidget {
                 image: Image.asset('assets/images/font_download.png'),
               ),
             );
+        }
+
+        if (uri.pathSegments.length == 1 &&
+            uri.pathSegments.first == 'font_history') {
+          return MaterialPageRoute(
+            builder: (context) => FontLogPage(),
+          );
         }
 
         return MaterialPageRoute(
