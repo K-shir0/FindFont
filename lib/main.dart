@@ -8,10 +8,10 @@ import 'package:find_font/pages/CameraPage.dart';
 import 'package:find_font/pages/CameraResultPage.dart';
 import 'package:find_font/pages/FavoriteListPage.dart';
 import 'package:find_font/pages/FontInformationPage.dart';
-import 'package:find_font/pages/FontLogPage.dart';
 import 'package:find_font/pages/HelpPage.dart';
 import 'package:find_font/pages/IndexPage.dart';
 import 'package:find_font/pages/MyHomePage.dart';
+import 'package:find_font/pages/ScanLogPage.dart';
 import 'package:find_font/pages/SettingPage.dart';
 import 'package:find_font/pages/UsagePage.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +82,7 @@ class Router extends HookWidget {
         // フォント履歴
         if (settings.name == '/font_log') {
           return MaterialPageRoute(
-              builder: (context) => FontLogPage(_scanResultApplicationService));
+              builder: (context) => ScanLogPage(_scanResultApplicationService));
         }
 
         // フォント結果/:id
