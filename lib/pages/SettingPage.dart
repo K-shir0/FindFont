@@ -51,7 +51,7 @@ class SettingPage extends HookWidget {
   }
 }
 
-class _UsageButtonItem extends HookWidget {
+class _UsageButtonItem extends StatelessWidget {
   final Text title;
   final SvgPicture svgPicture;
   final Function onTapHandler;
