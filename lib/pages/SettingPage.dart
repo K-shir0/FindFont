@@ -16,7 +16,7 @@ class SettingPage extends HookWidget {
       body: ListView(
         padding: EdgeInsets.only(top: 1, bottom: 1),
         children: [
-          _UsageButtonItem(
+          UsageButtonItem(
             title: Text(
               "使い方",
               style: textStyle,
@@ -24,7 +24,7 @@ class SettingPage extends HookWidget {
             svgPicture: SvgPicture.asset('assets/svg/syoshinsya.svg'),
             onTapHandler: () => Navigator.pushNamed(context, '/usage'),
           ),
-          _UsageButtonItem(
+          UsageButtonItem(
             title: Text(
               "ヘルプ",
               style: textStyle,
@@ -34,7 +34,7 @@ class SettingPage extends HookWidget {
               print("ヘルプボタンが押された");
             },
           ),
-          _UsageButtonItem(
+          UsageButtonItem(
             title: Text(
               "お気に入り",
               style: textStyle,
@@ -51,12 +51,12 @@ class SettingPage extends HookWidget {
   }
 }
 
-class _UsageButtonItem extends StatelessWidget {
+class UsageButtonItem extends StatelessWidget {
   final Text title;
   final SvgPicture svgPicture;
   final Function onTapHandler;
 
-  _UsageButtonItem(
+  UsageButtonItem(
       {@required this.title, this.svgPicture, @required this.onTapHandler});
 
   @override
