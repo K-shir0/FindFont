@@ -31,17 +31,6 @@ class SettingPage extends HookWidget {
             svgPicture: SvgPicture.asset('assets/svg/question.svg'),
             onTapHandler: () => Navigator.pushNamed(context, '/help'),
           ),
-          UsageButtonItem(
-            title: Text(
-              "お気に入り",
-              style: textStyle,
-            ),
-            svgPicture: SvgPicture.asset('assets/svg/star.svg'),
-            onTapHandler: () {
-              print("お気に入りボタンが押された");
-              Navigator.of(context).pushNamed('/favorite');
-            },
-          ),
         ],
       ),
     );

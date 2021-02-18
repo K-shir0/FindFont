@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'SettingPage.dart';
 
 class FontLogPage extends HookWidget {
-  final textStyle = TextStyle(fontSize: 14,color: Color(0xFF639CBF), fontWeight: FontWeight.bold);
+  final textStyle = TextStyle(
+      fontSize: 14, color: Color(0xFF639CBF), fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -19,26 +21,17 @@ class FontLogPage extends HookWidget {
         children: [
           UsageButtonItem(
             title: Text(
-              "うまくスキャンできない",
-              style: textStyle,
+              "お気に入り",
             ),
-            onTapHandler: () =>
-                Navigator.pushNamed(context, '/help/umaku_skyan'),
+            svgPicture: SvgPicture.asset('assets/svg/star.svg'),
+            onTapHandler: () => Navigator.of(context).pushNamed('/favorite'),
           ),
           UsageButtonItem(
             title: Text(
-              "和文フォントをスキャンしたい",
-              style: textStyle,
+              "過去のスキャン履歴",
             ),
-            onTapHandler: () => Navigator.pushNamed(context, '/help/wabun'),
-          ),
-          UsageButtonItem(
-            title: Text(
-              "フォントをダウンロードしたい",
-              style: textStyle,
-            ),
-            onTapHandler: () =>
-                Navigator.pushNamed(context, '/help/font_download'),
+            svgPicture: SvgPicture.asset('assets/svg/history.svg'),
+            onTapHandler: () => Navigator.of(context).pushNamed('/font_log'),
           ),
         ],
       ),
