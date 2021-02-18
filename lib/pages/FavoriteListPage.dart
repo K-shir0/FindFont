@@ -134,15 +134,12 @@ class fontLogList extends HookWidget {
                   ],
                 ),
               ),
-              Flexible(
-                flex: 1,
-                child: Row(
-                  children: [
-                    Padding(
-                        padding: EdgeInsets.only(right: 8, left: 16),
-                        child: SvgPicture.asset('assets/svg/next.svg'))
-                  ],
-                ),
+              Row(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(right: 20, left: 16),
+                      child: SvgPicture.asset('assets/svg/next.svg'))
+                ],
               ),
             ],
           ),

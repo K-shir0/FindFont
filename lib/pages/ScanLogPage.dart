@@ -104,20 +104,17 @@ class ScanLogPage extends HookWidget {
                   ],
                 ),
               ),
-              Flexible(
-                flex: 4,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      formatter.format(scanResult.dateTime),
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(right: 8, left: 16),
-                        child: SvgPicture.asset('assets/svg/next.svg'))
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    formatter.format(scanResult.dateTime),
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(right: 20, left: 16),
+                      child: SvgPicture.asset('assets/svg/next.svg'))
+                ],
               ),
             ],
           ),
