@@ -1,6 +1,4 @@
 
-import 'dart:convert';
-import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:find_font/components/scan_result/model/font_information.dart';
@@ -617,66 +615,66 @@ class ScanResultRepository {
         {"photo": await MultipartFile.fromFile(path, filename: filename)});
 
     // 取得処理
-    // try {
-    //   print("送信開始?");
-    //   final response = await dio.post(url, data: formData);
-    //
-    //   print("送信完了");
-    //
-    //   // 送信成功
-    //   print(response.data['prediction']);
-    //
-    //   var prediction = response.data['prediction'];
-    //
-    //   // データの保存処理
-    //   ScanResultFactory scanResultFactory = new ScanResultFactory();
-    //   ScanResult scanResult = scanResultFactory.create();
-    //
-    //   scanResult.fontInformationList = HiveList(_fontInformationBox);
-    //
-    //   for (int a in prediction) {
-    //     // 配列への問合せ
-    //     print(_fontInformationBox.getAt(0));
-    //     scanResult.fontInformationList.add(_fontInformationBox.getAt(a));
-    //   }
-    //
-    //   print(scanResult.fontInformationList);
-    //
-    //   print("保存");
-    //   _scan_result_box.add(scanResult);
-    //
-    // } on DioError catch (e) {
-    //   throw e;
-    //   print(e.message);
-    //   print(e);
-    //   print('送信できませんでした');
-    // }
+    try {
+      print("送信開始?");
+      final response = await dio.post(url, data: formData);
 
-    Map<String, dynamic> test =
-        json.decode('{"model":"VGG16","prediction":[45,68,72,95,174]}');
+      print("送信完了");
 
-    var prediction = test['prediction'];
+      // 送信成功
+      print(response.data['prediction']);
 
-    // _scan_result_box.clear();
+      var prediction = response.data['prediction'];
 
-    // データの保存
-    ScanResultFactory scanResultFactory = new ScanResultFactory();
-    ScanResult scanResult = scanResultFactory.create();
+      // データの保存処理
+      ScanResultFactory scanResultFactory = new ScanResultFactory();
+      ScanResult scanResult = scanResultFactory.create();
 
-    scanResult.fontInformationList = HiveList(_fontInformationBox);
+      scanResult.fontInformationList = HiveList(_fontInformationBox);
 
-    Random rdm = new Random();
-    print("Info登録処理");
-    for (int a in prediction) {
-      // 配列への問合せ
-      print(this._fontInformationBox.getAt(0));
-      scanResult.fontInformationList.add(_fontInformationBox.getAt(rdm.nextInt(256)));
+      for (int a in prediction) {
+        // 配列への問合せ
+        print(_fontInformationBox.getAt(0));
+        scanResult.fontInformationList.add(_fontInformationBox.getAt(a));
+      }
+
+      print(scanResult.fontInformationList);
+
+      print("保存");
+      _scan_result_box.add(scanResult);
+
+    } on DioError catch (e) {
+      throw e;
+      print(e.message);
+      print(e);
+      print('送信できませんでした');
     }
 
-    print(scanResult.fontInformationList);
-
-    print("保存");
-    _scan_result_box.add(scanResult);
+    // Map<String, dynamic> test =
+    //     json.decode('{"model":"VGG16","prediction":[45,68,72,95,174]}');
+    //
+    // var prediction = test['prediction'];
+    //
+    // // _scan_result_box.clear();
+    //
+    // // データの保存
+    // ScanResultFactory scanResultFactory = new ScanResultFactory();
+    // ScanResult scanResult = scanResultFactory.create();
+    //
+    // scanResult.fontInformationList = HiveList(_fontInformationBox);
+    //
+    // Random rdm = new Random();
+    // print("Info登録処理");
+    // for (int a in prediction) {
+    //   // 配列への問合せ
+    //   print(this._fontInformationBox.getAt(0));
+    //   scanResult.fontInformationList.add(_fontInformationBox.getAt(rdm.nextInt(256)));
+    // }
+    //
+    // print(scanResult.fontInformationList);
+    //
+    // print("保存");
+    // _scan_result_box.add(scanResult);
   }
 
   getAll() {
