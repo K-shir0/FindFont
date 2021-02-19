@@ -80,7 +80,7 @@ class IndexPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            'フォント履歴',
+                            '過去のフォントを見る',
                             style: TextStyle(
                               fontFamily: 'YuGothic',
                               fontSize: 16,
