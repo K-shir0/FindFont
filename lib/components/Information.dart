@@ -23,7 +23,7 @@ class Information extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: RichText(
               text: TextSpan(children: [
-                TextSpan(text: contents, style: TextStyle(color: Colors.black))
+                TextSpan(text: contents, style: TextStyle(color: Colors.black,  height: 1.8,))
               ]),
             ),
           ),
