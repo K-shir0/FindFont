@@ -139,8 +139,7 @@ class Router extends HookWidget {
                 title: "うまくスキャンできない",
                 contents:
                     """お持ちのカメラの性能により正確さが左右される可能性があります。カメラ部分を拭き取りもう一度撮り直しをするとより正確になりますので、一度お試し下さい。""",
-                image:
-                    Image.asset('assets/images/umakusukyandekinaitokiha.png'),
+                image: Image.asset('assets/images/img_camera.png'),
               ),
             );
           if (uri.pathSegments[1] == 'wabun')
@@ -149,7 +148,7 @@ class Router extends HookWidget {
                 title: "和文フォントをスキャンしたい",
                 contents:
                     """申し訳ございませんが、現在webフォントであるGoogleフォントからしか検索できない状況です。バージョンアップするまでお待ちください。""",
-                image: Image.asset('assets/images/wabun.png'),
+                image: Image.asset('assets/images/img_moji.png'),
               ),
             );
           if (uri.pathSegments[1] == 'font_download')
@@ -158,7 +157,7 @@ class Router extends HookWidget {
                 title: "フォントをダウンロードしたい",
                 contents:
                     """Googleフォントで検索すると、専用サイトに行くことができます。そこから左上にある”search”から今回でた結果の文字を入力いただくと、同じ文字がでてきます。そこをタップして頂き、右上にある”Download family”を押していただくとダウンロード完了です。""",
-                image: Image.asset('assets/images/font_download.png'),
+                image: Image.asset('assets/images/img_download.png'),
               ),
             );
         }
